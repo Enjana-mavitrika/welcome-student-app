@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q1132955  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q22690> ;
+        sch:identifier        <http://www.lorraine-inp.fr/> ;
+        sch:lattitude         48.65222222 ;
+        sch:longitude         6.14805556 ;
+        sch:name              "Institut national polytechnique de Lorraine"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q1132955> .

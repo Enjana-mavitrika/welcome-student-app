@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q30974  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q30974> ;
+        sch:lattitude   49.443055555 ;
+        sch:longitude   1.1025 ;
+        sch:name        "Rouen"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q30974> .

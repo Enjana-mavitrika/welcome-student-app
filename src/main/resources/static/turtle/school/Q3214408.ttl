@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3214408  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q7880> ;
+        sch:identifier        <http://www.laas.fr/2-27719-Home.php> ;
+        sch:lattitude         43.5632 ;
+        sch:longitude         1.47734 ;
+        sch:name              "Laboratoire d'analyse et d'architecture des systèmes"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3214408> .

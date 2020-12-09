@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q16508572  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q22690> ;
+        sch:identifier        <http://www.lcfc.fr/wordpress/> ;
+        sch:lattitude         49.0941 ;
+        sch:longitude         6.22618 ;
+        sch:name              "Laboratoire de conception fabrication commande"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q16508572> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3578191  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q7880> ;
+        sch:identifier        <http://www.toulouse.archi.fr> ;
+        sch:lattitude         43.579404 ;
+        sch:longitude         1.3947114 ;
+        sch:name              "École nationale supérieure d'architecture de Toulouse"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3578191> .

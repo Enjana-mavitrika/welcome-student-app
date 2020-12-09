@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q40898  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q40898> ;
+        sch:lattitude   48.692777777 ;
+        sch:longitude   6.183611111 ;
+        sch:name        "Nancy"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q40898> .

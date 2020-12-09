@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30262459  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47465> ;
+        sch:identifier        <http://www.cpaf.cnrs.fr/> ;
+        sch:lattitude         43.527976 ;
+        sch:longitude         5.418276 ;
+        sch:name              "Centre Paul-Albert Février"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30262459> .

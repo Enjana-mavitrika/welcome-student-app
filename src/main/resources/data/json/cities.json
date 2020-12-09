@@ -1,0 +1,296 @@
+[
+    {
+        "item": "http://www.wikidata.org/entity/Q90",
+        "itemLabel": "Paris",
+        "population": "2187526",
+        "gps": "Point(2.351388888 48.856944444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q23482",
+        "itemLabel": "Marseille",
+        "population": "869815",
+        "gps": "Point(5.376388888 43.296666666)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q456",
+        "itemLabel": "Lyon",
+        "population": "516092",
+        "gps": "Point(4.841388888 45.758888888)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q7880",
+        "itemLabel": "Toulouse",
+        "population": "479553",
+        "gps": "Point(1.443888888 43.604444444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q33959",
+        "itemLabel": "Nice",
+        "population": "340017",
+        "gps": "Point(7.268333333 43.701944444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q12191",
+        "itemLabel": "Nantes",
+        "population": "309346",
+        "gps": "Point(-1.553888888 47.217222222)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q6441",
+        "itemLabel": "Montpellier",
+        "population": "285121",
+        "gps": "Point(3.877230555 43.610919444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q6602",
+        "itemLabel": "Strasbourg",
+        "population": "280966",
+        "gps": "Point(7.752222222 48.573333333)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q1479",
+        "itemLabel": "Bordeaux",
+        "population": "254436",
+        "gps": "Point(-0.579444444 44.837777777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q648",
+        "itemLabel": "Lille",
+        "population": "232787",
+        "gps": "Point(3.0575 50.631944444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q647",
+        "itemLabel": "Rennes",
+        "population": "216815",
+        "gps": "Point(-1.680833333 48.114166666)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q41876",
+        "itemLabel": "Reims",
+        "population": "182460",
+        "gps": "Point(4.028611111 49.265277777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q42716",
+        "itemLabel": "Saint-Étienne",
+        "population": "172565",
+        "gps": "Point(4.389722222 45.433888888)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q44160",
+        "itemLabel": "Toulon",
+        "population": "171953",
+        "gps": "Point(5.930555555 43.125)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q42810",
+        "itemLabel": "Le Havre",
+        "population": "170147",
+        "gps": "Point(0.108055555 49.494166666)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q1289",
+        "itemLabel": "Grenoble",
+        "population": "158454",
+        "gps": "Point(5.726388888 45.186944444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q7003",
+        "itemLabel": "Dijon",
+        "population": "156920",
+        "gps": "Point(5.041944444 47.323055555)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q38380",
+        "itemLabel": "Angers",
+        "population": "152960",
+        "gps": "Point(-0.555555555 47.472777777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q42807",
+        "itemLabel": "Nîmes",
+        "population": "150610",
+        "gps": "Point(4.36 43.836944444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q47045",
+        "itemLabel": "Saint-Denis",
+        "population": "147931",
+        "gps": "Point(55.448055555 -20.878888888)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q582",
+        "itemLabel": "Villeurbanne",
+        "population": "147712",
+        "gps": "Point(4.879444444 45.766111111)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q42168",
+        "itemLabel": "Clermont-Ferrand",
+        "population": "143886",
+        "gps": "Point(3.086944444 45.779722222)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q1476",
+        "itemLabel": "Le Mans",
+        "population": "142946",
+        "gps": "Point(0.196944444 48.004166666)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q47465",
+        "itemLabel": "Aix-en-Provence",
+        "population": "142482",
+        "gps": "Point(5.445555555 43.527777777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q12193",
+        "itemLabel": "Brest",
+        "population": "140064",
+        "gps": "Point(-4.486944444 48.39)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q288",
+        "itemLabel": "Tours",
+        "population": "135787",
+        "gps": "Point(0.688333333 47.392777777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q41604",
+        "itemLabel": "Amiens",
+        "population": "134057",
+        "gps": "Point(2.297777777 49.891944444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q45656",
+        "itemLabel": "Limoges",
+        "population": "132175",
+        "gps": "Point(1.261666666 45.834444444)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q50189",
+        "itemLabel": "Annecy",
+        "population": "126924",
+        "gps": "Point(6.129444444 45.899166666)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q6730",
+        "itemLabel": "Perpignan",
+        "population": "120158",
+        "gps": "Point(2.894722222 42.6975)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q172455",
+        "itemLabel": "Boulogne-Billancourt",
+        "population": "120071",
+        "gps": "Point(2.241388888 48.835277777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q6548",
+        "itemLabel": "Orléans",
+        "population": "116685",
+        "gps": "Point(1.904166666 47.902222222)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q22690",
+        "itemLabel": "Metz",
+        "population": "116429",
+        "gps": "Point(6.176944444 49.119722222)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q37776",
+        "itemLabel": "Besançon",
+        "population": "115934",
+        "gps": "Point(6.021388888 47.242222222)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q160506",
+        "itemLabel": "Saint-Denis",
+        "population": "111135",
+        "gps": "Point(2.353888888 48.935555555)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q181946",
+        "itemLabel": "Argenteuil",
+        "population": "110210",
+        "gps": "Point(2.2475 48.947777777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q30974",
+        "itemLabel": "Rouen",
+        "population": "110145",
+        "gps": "Point(1.1025 49.443055555)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q193370",
+        "itemLabel": "Montreuil",
+        "population": "109897",
+        "gps": "Point(2.443055555 48.860277777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q79815",
+        "itemLabel": "Mulhouse",
+        "population": "109443",
+        "gps": "Point(7.339166666 47.748611111)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q41185",
+        "itemLabel": "Caen",
+        "population": "105354",
+        "gps": "Point(-0.370555555 49.182222222)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q316887",
+        "itemLabel": "Saint-Paul",
+        "population": "104519",
+        "gps": "Point(55.269722222 -21.009722222)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q40898",
+        "itemLabel": "Nancy",
+        "population": "104286",
+        "gps": "Point(6.183611111 48.692777777)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q182481",
+        "itemLabel": "Tourcoing",
+        "population": "97368",
+        "gps": "Point(3.160277777 50.7225)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q34001",
+        "itemLabel": "Roubaix",
+        "population": "96990",
+        "gps": "Point(3.181666666 50.69)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q170507",
+        "itemLabel": "Nanterre",
+        "population": "95105",
+        "gps": "Point(2.203611111 48.890555555)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q72248",
+        "itemLabel": "Vitry-sur-Seine",
+        "population": "93557",
+        "gps": "Point(2.392777777 48.7875)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q6397",
+        "itemLabel": "Avignon",
+        "population": "91921",
+        "gps": "Point(4.808333333 43.948611111)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q6616",
+        "itemLabel": "Poitiers",
+        "population": "88291",
+        "gps": "Point(0.335277777 46.581111111)"
+    },
+    {
+        "item": "http://www.wikidata.org/entity/Q45797",
+        "itemLabel": "Dunkerque",
+        "population": "87353",
+        "gps": "Point(2.376388888 51.037777777)"
+    }
+]

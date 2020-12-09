@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q1465237  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q22690> ;
+        sch:identifier        <http://www.univ-metz.fr/> ;
+        sch:lattitude         49.11972222 ;
+        sch:longitude         6.16666667 ;
+        sch:name              "université Paul-Verlaine - Metz"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q1465237> .

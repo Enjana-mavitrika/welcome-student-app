@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q45797  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q45797> ;
+        sch:lattitude   51.037777777 ;
+        sch:longitude   2.376388888 ;
+        sch:name        "Dunkerque"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q45797> .

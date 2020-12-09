@@ -1,0 +1,11 @@
+PREFIX sch: <https://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?city ?lattitude ?longitude ?url ?name ?wikidataEntityId WHERE {
+  ?city rdf:type sch:City;
+        sch:lattitude ?lattitude;
+        sch:longitude ?longitude;
+        sch:name ?name;
+        sch:url ?url;
+        sch:identifier ?wikidataEntityId.
+}

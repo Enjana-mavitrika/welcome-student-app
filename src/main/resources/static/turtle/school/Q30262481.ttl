@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30262481  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q22690> ;
+        sch:identifier        <http://www.umi2958.eu/> ;
+        sch:lattitude         49.102225 ;
+        sch:longitude         6.215188 ;
+        sch:name              "Georgiatech-CNRS"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30262481> .

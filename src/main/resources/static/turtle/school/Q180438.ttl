@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q180438  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47465> ;
+        sch:identifier        <http://www.univmed.fr/> ;
+        sch:lattitude         43.29244 ;
+        sch:longitude         5.35842 ;
+        sch:name              "université de la Méditerranée - Aix-Marseille II"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q180438> .

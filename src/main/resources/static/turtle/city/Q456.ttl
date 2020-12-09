@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q456  a         sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q456> ;
+        sch:lattitude   45.758888888 ;
+        sch:longitude   4.841388888 ;
+        sch:name        "Lyon"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q456> .

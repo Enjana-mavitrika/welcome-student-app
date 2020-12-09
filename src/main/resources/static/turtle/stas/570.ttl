@@ -1,0 +1,9 @@
+@prefix ex_stas: <http://localhost:8080/stas/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_stas:570  a                sch:BusStop ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
+        sch:lattitude         0.0 ;
+        sch:longitude         4.3455858281 ;
+        sch:name              "LA FUTAIE"@fr ;
+        sch:url               <http://localhost:8080/page/city/570> .

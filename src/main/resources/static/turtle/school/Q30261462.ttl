@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30261462  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q41876> ;
+        sch:identifier        <http://www.univ-reims.fr/site/laboratoire-labellise/icmr/presentation,9938,17756.html?> ;
+        sch:lattitude         49.255827 ;
+        sch:longitude         4.040232 ;
+        sch:name              "Institut de Chimie Moléculaire de Reims"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30261462> .

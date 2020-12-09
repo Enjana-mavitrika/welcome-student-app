@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3151938  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q7880> ;
+        sch:identifier        <http://www.idei.fr/> ;
+        sch:lattitude         43.605388888 ;
+        sch:longitude         1.43125 ;
+        sch:name              "Institut d'économie industrielle"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3151938> .

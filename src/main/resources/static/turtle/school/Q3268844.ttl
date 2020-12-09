@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268844  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://montaigne-bordeaux.fr/> ;
+        sch:lattitude         44.8344 ;
+        sch:longitude         -0.571667 ;
+        sch:name              "lycée Michel-Montaigne"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268844> .

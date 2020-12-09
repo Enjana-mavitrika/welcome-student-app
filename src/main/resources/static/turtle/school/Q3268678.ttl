@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268678  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6602> ;
+        sch:identifier        <http://www.lyc-fustel.ac-strasbourg.fr> ;
+        sch:lattitude         48.5818 ;
+        sch:longitude         7.75199 ;
+        sch:name              "lycée Fustel-de-Coulanges"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268678> .

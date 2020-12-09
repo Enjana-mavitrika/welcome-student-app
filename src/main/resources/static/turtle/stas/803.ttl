@@ -1,0 +1,9 @@
+@prefix ex_stas: <http://localhost:8080/stas/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_stas:803  a                sch:BusStop ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
+        sch:lattitude         0.0 ;
+        sch:longitude         4.4048782942 ;
+        sch:name              "RUE DE LA CHANCE"@fr ;
+        sch:url               <http://localhost:8080/page/city/803> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3280224  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47465> ;
+        sch:identifier        <http://www.mmsh.univ-aix.fr/> ;
+        sch:lattitude         43.5157 ;
+        sch:longitude         5.44584 ;
+        sch:name              "Maison méditerranéenne des Sciences de l'homme"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3280224> .

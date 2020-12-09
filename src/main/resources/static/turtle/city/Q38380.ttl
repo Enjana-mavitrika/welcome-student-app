@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q38380  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q38380> ;
+        sch:lattitude   47.472777777 ;
+        sch:longitude   -0.555555555 ;
+        sch:name        "Angers"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q38380> .

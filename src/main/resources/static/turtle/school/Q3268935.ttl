@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268935  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q7880> ;
+        sch:identifier        <http://saint-sernin.entmip.fr/> ;
+        sch:lattitude         43.6088 ;
+        sch:longitude         1.44025 ;
+        sch:name              "lycée Saint-Sernin"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268935> .

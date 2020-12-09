@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q6616  a        sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q6616> ;
+        sch:lattitude   46.581111111 ;
+        sch:longitude   0.335277777 ;
+        sch:name        "Poitiers"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q6616> .

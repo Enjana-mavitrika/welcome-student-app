@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q316887  a      sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q316887> ;
+        sch:lattitude   -21.009722222 ;
+        sch:longitude   55.269722222 ;
+        sch:name        "Saint-Paul"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q316887> .

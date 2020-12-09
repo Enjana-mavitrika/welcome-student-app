@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q6397  a        sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q6397> ;
+        sch:lattitude   43.948611111 ;
+        sch:longitude   4.808333333 ;
+        sch:name        "Avignon"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q6397> .

@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q170507  a      sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q170507> ;
+        sch:lattitude   48.890555555 ;
+        sch:longitude   2.203611111 ;
+        sch:name        "Nanterre"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q170507> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q4813030  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q90> ;
+        sch:identifier        <http://www.ateliersvaran.com/> ;
+        sch:lattitude         48.8577 ;
+        sch:longitude         2.38832 ;
+        sch:name              "ateliers Varan"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q4813030> .

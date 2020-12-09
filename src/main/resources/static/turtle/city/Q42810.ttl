@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q42810  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q42810> ;
+        sch:lattitude   49.494166666 ;
+        sch:longitude   0.108055555 ;
+        sch:name        "Le Havre"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q42810> .

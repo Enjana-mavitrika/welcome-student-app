@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3152464  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6602> ;
+        sch:identifier        <http://www.iphc.cnrs.fr> ;
+        sch:lattitude         48.60449 ;
+        sch:longitude         7.71201 ;
+        sch:name              "Institut pluridisciplinaire Hubert Curien"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3152464> .

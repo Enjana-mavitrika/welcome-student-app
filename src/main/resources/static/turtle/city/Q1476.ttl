@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q1476  a        sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q1476> ;
+        sch:lattitude   48.004166666 ;
+        sch:longitude   0.196944444 ;
+        sch:name        "Le Mans"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q1476> .

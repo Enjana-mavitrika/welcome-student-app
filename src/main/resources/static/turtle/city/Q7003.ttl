@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q7003  a        sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q7003> ;
+        sch:lattitude   47.323055555 ;
+        sch:longitude   5.041944444 ;
+        sch:name        "Dijon"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q7003> .

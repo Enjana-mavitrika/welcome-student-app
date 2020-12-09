@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q34001  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q34001> ;
+        sch:lattitude   50.69 ;
+        sch:longitude   3.181666666 ;
+        sch:name        "Roubaix"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q34001> .

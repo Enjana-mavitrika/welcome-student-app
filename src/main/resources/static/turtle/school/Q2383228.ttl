@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2383228  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6602> ;
+        sch:identifier        <http://www.lycee-kleber.com.fr> ;
+        sch:lattitude         48.59416667 ;
+        sch:longitude         7.755 ;
+        sch:name              "lycée Kléber"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2383228> .

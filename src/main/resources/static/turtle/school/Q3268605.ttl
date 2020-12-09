@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268605  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://www.camillejullian.com> ;
+        sch:lattitude         44.8446 ;
+        sch:longitude         -0.590159 ;
+        sch:name              "lycée Camille-Jullian"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268605> .

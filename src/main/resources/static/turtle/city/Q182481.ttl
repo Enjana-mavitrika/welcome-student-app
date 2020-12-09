@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q182481  a      sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q182481> ;
+        sch:lattitude   50.7225 ;
+        sch:longitude   3.160277777 ;
+        sch:name        "Tourcoing"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q182481> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3269120  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6602> ;
+        sch:identifier        <http://www.lyc-sections-internationales-strasbourg.ac-strasbourg.fr> ;
+        sch:lattitude         48.5845 ;
+        sch:longitude         7.75654 ;
+        sch:name              "lycée international des Pontonniers"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3269120> .

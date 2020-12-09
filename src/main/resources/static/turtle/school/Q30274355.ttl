@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30274355  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47465> ;
+        sch:identifier        <http://www.iraa.mom.fr/> ;
+        sch:lattitude         45.749612 ;
+        sch:longitude         4.83638 ;
+        sch:name              "Institut de recherche sur l'architecture antique"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30274355> .

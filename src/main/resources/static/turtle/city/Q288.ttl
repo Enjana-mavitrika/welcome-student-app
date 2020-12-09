@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q288  a         sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q288> ;
+        sch:lattitude   47.392777777 ;
+        sch:longitude   0.688333333 ;
+        sch:name        "Tours"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q288> .

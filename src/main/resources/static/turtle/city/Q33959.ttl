@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q33959  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q33959> ;
+        sch:lattitude   43.701944444 ;
+        sch:longitude   7.268333333 ;
+        sch:name        "Nice"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q33959> .

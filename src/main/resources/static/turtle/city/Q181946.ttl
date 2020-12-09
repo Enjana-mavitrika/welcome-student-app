@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q181946  a      sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q181946> ;
+        sch:lattitude   48.947777777 ;
+        sch:longitude   2.2475 ;
+        sch:name        "Argenteuil"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q181946> .

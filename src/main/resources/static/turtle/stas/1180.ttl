@@ -1,0 +1,9 @@
+@prefix ex_stas: <http://localhost:8080/stas/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_stas:1180  a               sch:BusStop ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
+        sch:lattitude         0.0 ;
+        sch:longitude         4.5163365084 ;
+        sch:name              "MARECHAL LECLERC"@fr ;
+        sch:url               <http://localhost:8080/page/city/1180> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3122623  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6602> ;
+        sch:identifier        <http://www.jsturm.fr/index.php> ;
+        sch:lattitude         48.5838 ;
+        sch:longitude         7.7482 ;
+        sch:name              "gymnase Jean-Sturm"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3122623> .

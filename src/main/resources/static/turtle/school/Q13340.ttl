@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q13340  a           sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://www.univ-bordeauxsegalen.fr/en/index.html> ;
+        sch:lattitude         44.825205 ;
+        sch:longitude         -0.60579 ;
+        sch:name              "université Bordeaux II"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q13340> .

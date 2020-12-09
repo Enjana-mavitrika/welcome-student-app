@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268942  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://www.grandlebrun.com/> ;
+        sch:lattitude         44.8498 ;
+        sch:longitude         -0.606558 ;
+        sch:name              "lycée Sainte-Marie Grand Lebrun"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268942> .

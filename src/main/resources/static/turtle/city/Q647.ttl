@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q647  a         sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q647> ;
+        sch:lattitude   48.114166666 ;
+        sch:longitude   -1.680833333 ;
+        sch:name        "Rennes"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q647> .

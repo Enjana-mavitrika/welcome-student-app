@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q582  a         sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q582> ;
+        sch:lattitude   45.766111111 ;
+        sch:longitude   4.879444444 ;
+        sch:name        "Villeurbanne"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q582> .

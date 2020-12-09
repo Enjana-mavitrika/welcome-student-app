@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2570220  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47465> ;
+        sch:identifier        <https://artsetmetiers.fr> ;
+        sch:lattitude         48.833611 ;
+        sch:longitude         2.358333 ;
+        sch:name              "École nationale supérieure d'arts et métiers"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2570220> .

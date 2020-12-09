@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q90  a          sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q90> ;
+        sch:lattitude   48.856944444 ;
+        sch:longitude   2.351388888 ;
+        sch:name        "Paris"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q90> .

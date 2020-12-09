@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q19950921  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q22690> ;
+        sch:identifier        <http://www.caepr.org/> ;
+        sch:lattitude         49.1126 ;
+        sch:longitude         6.18095 ;
+        sch:name              "Centre autonome d'enseignement de pédagogie religieuse"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q19950921> .

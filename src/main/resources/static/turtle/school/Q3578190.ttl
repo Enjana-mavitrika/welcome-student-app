@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3578190  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6602> ;
+        sch:identifier        <http://www.strasbourg.archi.fr/> ;
+        sch:lattitude         48.5862 ;
+        sch:longitude         7.73749 ;
+        sch:name              "École nationale supérieure d'architecture de Strasbourg"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3578190> .

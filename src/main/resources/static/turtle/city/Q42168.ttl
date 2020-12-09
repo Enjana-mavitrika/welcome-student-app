@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q42168  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q42168> ;
+        sch:lattitude   45.779722222 ;
+        sch:longitude   3.086944444 ;
+        sch:name        "Clermont-Ferrand"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q42168> .

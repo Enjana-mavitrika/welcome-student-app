@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q47465  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q47465> ;
+        sch:lattitude   43.527777777 ;
+        sch:longitude   5.445555555 ;
+        sch:name        "Aix-en-Provence"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q47465> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3152161  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q90> ;
+        sch:identifier        <http://www.ihedn.fr> ;
+        sch:lattitude         48.852438 ;
+        sch:longitude         2.303648 ;
+        sch:name              "Institut des hautes études de défense nationale"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3152161> .

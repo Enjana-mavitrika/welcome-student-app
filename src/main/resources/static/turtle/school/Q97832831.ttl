@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q97832831  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q41876> ;
+        sch:identifier        <http://jean23reims.org/> ;
+        sch:lattitude         49.259305555 ;
+        sch:longitude         4.036277777 ;
+        sch:name              "lycée Jean XXIII"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q97832831> .

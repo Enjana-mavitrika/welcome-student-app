@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q64847323  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q90> ;
+        sch:identifier        <https://maisondufilm.com/> ;
+        sch:lattitude         48.887027777 ;
+        sch:longitude         2.3735 ;
+        sch:name              "Maison du Film"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q64847323> .

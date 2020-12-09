@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Student Welcome App</title>
+    <!-- INCLUDE SHARED LINKS  -->
+    <link th:replace="links :: link" />
+    <!-- INCLUDE SHARED SCRIPTS  -->
+    <script th:replace="scripts :: script"></script>
+</head>
+
+<body>
+
+    <div class="uk-container">
+        <h1>Bienvenue sur Student welcome App</h1>
+        <div class="uk-alert-primary" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p>Sélectionner votre ville</p>
+        </div>
+        <table class="uk-table uk-table-striped">
+            <tr>
+                <th>Nom</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+            </tr>
+            <tr th:each="city : ${cities}">
+                <td>
+                    <span uk-icon="location"></span>
+                    <a th:href="@{${city.url}}">[[ ${city.name} ]]</a>
+                </td>
+                <td>[[ ${city.longitude} ]]</td>
+                <td>[[ ${city.latitude} ]]</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

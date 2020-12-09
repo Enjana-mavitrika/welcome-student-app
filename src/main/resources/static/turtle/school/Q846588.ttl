@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q846588  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q41876> ;
+        sch:identifier        <http://www.reims-ms.fr> ;
+        sch:lattitude         49.2389 ;
+        sch:longitude         4.00299 ;
+        sch:name              "Reims Management School"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q846588> .

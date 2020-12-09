@@ -1,0 +1,9 @@
+@prefix ex_stas: <http://localhost:8080/stas/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_stas:1732  a               sch:BusStop ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
+        sch:lattitude         0.0 ;
+        sch:longitude         4.2717405518 ;
+        sch:name              "RD PT DE L'AVION"@fr ;
+        sch:url               <http://localhost:8080/page/city/1732> .

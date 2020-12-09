@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q6730  a        sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q6730> ;
+        sch:lattitude   42.6975 ;
+        sch:longitude   2.894722222 ;
+        sch:name        "Perpignan"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q6730> .

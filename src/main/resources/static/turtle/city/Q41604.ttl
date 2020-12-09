@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q41604  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q41604> ;
+        sch:lattitude   49.891944444 ;
+        sch:longitude   2.297777777 ;
+        sch:name        "Amiens"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q41604> .

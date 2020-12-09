@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q23482  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q23482> ;
+        sch:lattitude   43.296666666 ;
+        sch:longitude   5.376388888 ;
+        sch:name        "Marseille"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q23482> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q43058281  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47465> ;
+        sch:identifier        <http://www.aixenprovence.fr/Conservatoire> ;
+        sch:lattitude         43.525730555 ;
+        sch:longitude         5.439691666 ;
+        sch:name              "conservatoire à rayonnement régional d'Aix-en-Provence"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q43058281> .

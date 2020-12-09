@@ -1,0 +1,9 @@
+@prefix ex_city: <http://localhost:8080/city/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_city:Q44160  a       sch:City ;
+        sch:identifier  <http://www.wikidata.org/entity/Q44160> ;
+        sch:lattitude   43.125 ;
+        sch:longitude   5.930555555 ;
+        sch:name        "Toulon"@fr ;
+        sch:url         <http://localhost:8080/page/city/Q44160> .

@@ -1,0 +1,9 @@
+@prefix ex_stas: <http://localhost:8080/stas/> .
+@prefix sch:   <https://schema.org/> .
+
+ex_stas:431  a                sch:BusStop ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
+        sch:lattitude         0.0 ;
+        sch:longitude         4.4045278145 ;
+        sch:name              "CENTRE CONGRES"@fr ;
+        sch:url               <http://localhost:8080/page/city/431> .

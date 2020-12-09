@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q788592  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q90> ;
+        sch:identifier        <http://www.centresevres.com/> ;
+        sch:lattitude         48.850745 ;
+        sch:longitude         2.325701 ;
+        sch:name              "centre Sèvres"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q788592> .
