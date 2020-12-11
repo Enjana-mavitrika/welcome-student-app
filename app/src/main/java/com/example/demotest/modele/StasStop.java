@@ -9,6 +9,7 @@ public class StasStop {
     public String name;
     public double longitude;
     public double latitude;
+    public String geo;
 
     public StasStop() {}
 
@@ -17,5 +18,6 @@ public class StasStop {
         this.name = name;
         this.longitude = Double.parseDouble(longitude);
         this.latitude = Double.parseDouble(latitude);
+        this.geo = "Point(" + longitude + " " + latitude + ")";
     }
 }

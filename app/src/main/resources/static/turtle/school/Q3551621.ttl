@@ -1,0 +1,17 @@
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix a:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3551621Geom
+        a          geo:Geometry ;
+        geo:asWKT  "Point(3.075194444 50.631722222)"^^geo:wktLiteral .
+
+ex_school:Q3551621  a         sch:School ;
+        geo:hasGeometry       ex_school:Q3551621Geom ;
+        sch:containedInPlace  <http://localhost:8080/city/Q648> ;
+        sch:identifier        <https://www.univ-lille.fr/> ;
+        sch:lattitude         50.631722222 ;
+        sch:longitude         3.075194444 ;
+        sch:name              "université de Lille"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3551621> .

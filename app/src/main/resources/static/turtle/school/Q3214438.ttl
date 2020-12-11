@@ -1,0 +1,17 @@
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix a:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3214438  a         sch:School ;
+        geo:hasGeometry       ex_school:Q3214438Geom ;
+        sch:containedInPlace  <http://localhost:8080/city/Q648> ;
+        sch:identifier        <http://l2ep.univ-lille1.fr/> ;
+        sch:lattitude         50.60611111 ;
+        sch:longitude         3.13611111 ;
+        sch:name              "Laboratoire d'électrotechnique et d'électronique de puissance de Lille"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3214438> .
+
+ex_school:Q3214438Geom
+        a          geo:Geometry ;
+        geo:asWKT  "Point(3.13611111 50.60611111)"^^geo:wktLiteral .

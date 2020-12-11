@@ -19,7 +19,7 @@ import java.util.Scanner;
 @Service
 public class RDFCounsumer {
 
-    private final String sparqlEndPoint = "http://localhost:3030/test/sparql";
+    private final String sparqlEndPoint = "http://localhost:3030/test";
     private final String querySelectLocator = "src/main/resources/query/triplestore/";
 
     public List<City> fetchCities() {
@@ -37,7 +37,7 @@ public class RDFCounsumer {
                 Resource url = qs.getResource("url");
                 Resource wikidataEntityId = qs.getResource("wikidataEntityId");
                 Literal name = qs.getLiteral("name");
-                //System.out.println(city + " " + name +  " " + lattitude + " " + longitude + " " + wikidataEntityId + " " + url);
+                System.out.println(city + " " + name +  " " + lattitude + " " + longitude + " " + wikidataEntityId + " " + url);
                 cities.add(new City(city.getURI(), name.getString(), lattitude.getDouble(), longitude.getDouble(), url.getURI(), wikidataEntityId.getURI()));
             }
         } catch (Exception ex) {
@@ -111,7 +111,6 @@ public class RDFCounsumer {
 
     private String getCityByIdQuery(String cityURI) {
         String query = this.getSelectQuery("cityById.rq").replace("<city-uri>", "<"+cityURI+">");
-        System.out.println(query);
         return query;
     }
 

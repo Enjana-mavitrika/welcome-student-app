@@ -23,16 +23,20 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RDFProducer {
-
+    // Entity URIs
     public static String STAS_BASE_URI = "/stas/";
     public static String CITY_BASE_URI = "/city/";
     public static String SCHOOL_BASE_URI = "/school/";
     public static String BASE_URI = "http://localhost:8080";
+    // RDF PREFIXES
     private final String rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
     private final String schema = "https://schema.org/";
     private final String wd = "http://www.wikidata.org/entity/";
+    private final String geo = "http://www.opengis.net/ont/geosparql#";
+    // SPARQL API
     private final String datasetURL = "http://localhost:3030/test";
     private final String sparqlEndpoint = datasetURL + "/sparql";
+    // RDF TURTLE FILE LOCATORS
     public static String SCHOOL_TTL_PATH = "src/main/resources/static/turtle/school/";
     public static String STAS_TTL_PATH = "src/main/resources/static/turtle/stas/";
     public static String CITY_TTL_PATH = "src/main/resources/static/turtle/city/";
@@ -72,16 +76,25 @@ public class RDFProducer {
         Property location = model.createProperty(schema + "containedInPlace");
         Property identifier = model.createProperty(schema + "identifier");
         Property url = model.createProperty(schema + "url");
+        Property geoAsWKT = model.createProperty(geo, "asWKT");
+        Property hasGeometry = model.createProperty(geo, "hasGeometry");
         String id = BASE_URI + SCHOOL_BASE_URI + school.qid;
         Resource city = model.createResource(BASE_URI + CITY_BASE_URI + cityId);
         Resource page = model.createResource(BASE_URI + "/page" + SCHOOL_BASE_URI + school.qid);
         Literal name = model.createLiteral(school.name, "fr");
+        Literal geoAsWKTvalue = model.createTypedLiteral(school.geo, geo+"wktLiteral");
         String longitude = school.longitude + "";
         String latitude = school.latitude + "";
         Resource schoolRDF = model.createResource(id);
         Resource schoolSchema = model.createResource(schema + "School");
+        Resource geometry = model.createResource(geo + "Geometry");
+        Resource schoolGeomRDF = model.createResource(id + "Geom");
         model.setNsPrefix("sch", schema);
         model.setNsPrefix("ex_school", BASE_URI + SCHOOL_BASE_URI);
+        model.setNsPrefix("geo", geo);
+        model.setNsPrefix("a", rdf);
+        schoolGeomRDF.addProperty(a, geometry);
+        schoolGeomRDF.addProperty(geoAsWKT, geoAsWKTvalue);
         schoolRDF.addProperty(a, schoolSchema);
         schoolRDF.addProperty(label, name);
         schoolRDF.addProperty(lati, latitude, XSDDatatype.XSDdecimal);
@@ -89,6 +102,7 @@ public class RDFProducer {
         schoolRDF.addProperty(location, city);
         schoolRDF.addProperty(url, page);
         schoolRDF.addProperty(identifier, model.createResource(school.website));
+        schoolRDF.addProperty(hasGeometry, schoolGeomRDF);
         
         return model;
     }
@@ -100,24 +114,34 @@ public class RDFProducer {
         Property lati = model.createProperty(schema + "lattitude");
         Property longi = model.createProperty(schema + "longitude");
         Property location = model.createProperty(schema + "containedInPlace");
+        Property geoAsWKT = model.createProperty(geo, "asWKT");
+        Property hasGeometry = model.createProperty(geo, "hasGeometry");
         Property url = model.createProperty(schema + "url");
         String id = BASE_URI + STAS_BASE_URI + stop.id;
         Resource city = model.createResource(BASE_URI + CITY_BASE_URI + cityId);
         Resource page = model.createResource(BASE_URI + "/page" + CITY_BASE_URI + stop.id);
         Literal name = model.createLiteral(stop.name, "fr");
+        Literal geoAsWKTvalue = model.createTypedLiteral(stop.geo, geo+"wktLiteral");
         String longitude = stop.longitude + "";
         String latitude = stop.latitude + "";
         Resource stopRDF = model.createResource(id);
         Resource busStopSchema = model.createResource(schema + "BusStop");
+        Resource geometry = model.createResource(geo + "Geometry");
+        Resource stopGeomRDF = model.createResource(id + "Geom");
         model.setNsPrefix("sch", schema);
         model.setNsPrefix("ex_stas", BASE_URI + STAS_BASE_URI);
+        model.setNsPrefix("geo", geo);
+        model.setNsPrefix("a", rdf);
+        stopGeomRDF.addProperty(a, geometry);
+        stopGeomRDF.addProperty(geoAsWKT, geoAsWKTvalue);
         stopRDF.addProperty(a, busStopSchema);
         stopRDF.addProperty(label, name);
         stopRDF.addProperty(lati, latitude, XSDDatatype.XSDdecimal);
         stopRDF.addProperty(longi, longitude, XSDDatatype.XSDdecimal);
         stopRDF.addProperty(location, city);
         stopRDF.addProperty(url, page);
-        //model.write(System.out, "TURTLE");
+        stopRDF.addProperty(hasGeometry, stopGeomRDF);
+        // model.write(System.out, "TURTLE");
         
         return model;
     }
@@ -146,7 +170,7 @@ public class RDFProducer {
         cityRDF.addProperty(longi, longitude, XSDDatatype.XSDdecimal);
         cityRDF.addProperty(url, cityUrl);
         cityRDF.addProperty(identifier, wikidataIdentifier);
-        //model.write(System.out, "TURTLE");
+        // model.write(System.out, "TURTLE");
 
         return model;
     }

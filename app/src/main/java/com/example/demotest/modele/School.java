@@ -10,6 +10,7 @@ public class School {
     public double longitude;
     public String url;
     public String website;
+    public String geo;
 
     public School() {
 
@@ -29,6 +30,7 @@ public class School {
         this.name = name;
         this.latitude = this.getLatitude(geo);
         this.longitude = this.getLongitude(geo);
+        this.geo = geo;
         this.website = website;
     }
 

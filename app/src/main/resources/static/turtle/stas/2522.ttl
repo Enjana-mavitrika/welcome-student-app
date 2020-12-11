@@ -1,9 +1,15 @@
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix a:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ex_stas: <http://localhost:8080/stas/> .
 @prefix sch:   <https://schema.org/> .
 
 ex_stas:2522  a               sch:BusStop ;
+        geo:hasGeometry       ex_stas:2522Geom ;
         sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
         sch:lattitude         0.0 ;
         sch:longitude         4.1380898546 ;
         sch:name              "GABELON"@fr ;
         sch:url               <http://localhost:8080/page/city/2522> .
+
+ex_stas:2522Geom  a  geo:Geometry ;
+        geo:asWKT  "Point(4.1380898546 0)"^^geo:wktLiteral .

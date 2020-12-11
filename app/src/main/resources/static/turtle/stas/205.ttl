@@ -1,9 +1,15 @@
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix a:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ex_stas: <http://localhost:8080/stas/> .
 @prefix sch:   <https://schema.org/> .
 
 ex_stas:205  a                sch:BusStop ;
+        geo:hasGeometry       ex_stas:205Geom ;
         sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
         sch:lattitude         0.0 ;
         sch:longitude         4.32602846 ;
         sch:name              "EGLISE CHAMBON 1"@fr ;
         sch:url               <http://localhost:8080/page/city/205> .
+
+ex_stas:205Geom  a  geo:Geometry ;
+        geo:asWKT  "Point(4.32602846 0)"^^geo:wktLiteral .

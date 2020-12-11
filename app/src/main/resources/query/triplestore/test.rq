@@ -1,0 +1,18 @@
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+prefix geof: <http://www.opengis.net/def/function/geosparql/>
+prefix spatialF: <http://jena.apache.org/function/spatial#>
+prefix units: <http://www.opengis.net/def/uom/OGC/1.0/>
+prefix : <http://blog.stardog.com/geons/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+prefix unit: <http://qudt.org/vocab/unit#>
+prefix spatial: <http://jena.apache.org/spatial#>
+
+SELECT ?feature ?geomLit  {
+  ?f a :Location ;
+    rdfs:label ?feature ;
+    geo:hasGeometry ?geom.
+  ?geom geo:hasSerialization ?geomLit
+  FILTER(spatialF:distance("Point(-77.03637 38.89761)"^^<http://www.opengis.net/ont/geosparql#wktLiteral>, ?geomLit,units:meter) > 500)
+}

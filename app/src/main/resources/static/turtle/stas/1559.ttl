@@ -1,9 +1,15 @@
+@prefix geo:   <http://www.opengis.net/ont/geosparql#> .
+@prefix a:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix ex_stas: <http://localhost:8080/stas/> .
 @prefix sch:   <https://schema.org/> .
 
 ex_stas:1559  a               sch:BusStop ;
+        geo:hasGeometry       ex_stas:1559Geom ;
         sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
         sch:lattitude         0.0 ;
         sch:longitude         4.5983170587 ;
         sch:name              "MAISON FORTE"@fr ;
         sch:url               <http://localhost:8080/page/city/1559> .
+
+ex_stas:1559Geom  a  geo:Geometry ;
+        geo:asWKT  "Point(4.5983170587 0)"^^geo:wktLiteral .
