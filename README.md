@@ -15,7 +15,7 @@ Application web basé sur la technologie __Web semantique__ pour aider les nouve
 | Populate triple multiple source | DONE |
 | Website front end of the data  | DONE |
 | Show group of entities in HTML TABLE | DONE |
-| Extract data with SPARQL (wikidata & apache jena-fuseki-geospatial) | DONE |
+| Extract data with SPARQL (wikidata & apache jena-fuseki-geosparql) | DONE |
 
 | __Fonctionnalités avancées__   |  __Statut__    |
 |--------------------------------|:--------------:|
