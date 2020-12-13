@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q22690  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q22690> ;
-        sch:lattitude   49.119722222 ;
-        sch:longitude   6.176944444 ;
-        sch:name        "Metz"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q22690> .

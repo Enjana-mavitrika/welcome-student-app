@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q72248  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q72248> ;
-        sch:lattitude   48.7875 ;
-        sch:longitude   2.392777777 ;
-        sch:name        "Vitry-sur-Seine"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q72248> .

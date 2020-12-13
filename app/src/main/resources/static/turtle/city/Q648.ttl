@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q648  a         sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q648> ;
-        sch:lattitude   50.631944444 ;
-        sch:longitude   3.0575 ;
-        sch:name        "Lille"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q648> .

@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q1479  a        sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q1479> ;
-        sch:lattitude   44.837777777 ;
-        sch:longitude   -0.579444444 ;
-        sch:name        "Bordeaux"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q1479> .

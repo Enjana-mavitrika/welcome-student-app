@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q6602  a        sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q6602> ;
-        sch:lattitude   48.573333333 ;
-        sch:longitude   7.752222222 ;
-        sch:name        "Strasbourg"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q6602> .

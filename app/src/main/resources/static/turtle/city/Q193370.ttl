@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q193370  a      sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q193370> ;
-        sch:lattitude   48.860277777 ;
-        sch:longitude   2.443055555 ;
-        sch:name        "Montreuil"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q193370> .

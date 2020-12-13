@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q7880  a        sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q7880> ;
-        sch:lattitude   43.604444444 ;
-        sch:longitude   1.443888888 ;
-        sch:name        "Toulouse"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q7880> .

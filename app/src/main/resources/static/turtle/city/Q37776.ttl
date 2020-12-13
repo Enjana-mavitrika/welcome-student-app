@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q37776  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q37776> ;
-        sch:lattitude   47.242222222 ;
-        sch:longitude   6.021388888 ;
-        sch:name        "Besançon"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q37776> .

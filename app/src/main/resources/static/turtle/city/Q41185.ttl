@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q41185  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q41185> ;
-        sch:lattitude   49.182222222 ;
-        sch:longitude   -0.370555555 ;
-        sch:name        "Caen"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q41185> .

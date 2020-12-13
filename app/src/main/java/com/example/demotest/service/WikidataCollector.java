@@ -10,15 +10,20 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 import org.springframework.stereotype.Service;
-import java.io.File;
-import java.io.FileNotFoundException;
+
+import java.io.BufferedReader;
 import java.util.Scanner;
+
+import javax.inject.Inject;
 
 @Service
 public class WikidataCollector {
 
+    @Inject 
+    ResourceFileReader fileReader;
+    
     private final String sparqlEndPoint = "https://query.wikidata.org/sparql";
-    private final String queryLocator = "src/main/resources/query/wikidata/";
+    private final String queryLocator = "query/wikidata/";
 
     public List<School> fetchSchool(String cityId) {
         List<School> schools = new ArrayList<School>();
@@ -52,18 +57,13 @@ public class WikidataCollector {
      */
     private String getSchoolQuery(String cityId) {
         String query = "";
-        try {
-            File file = new File(this.queryLocator + "school.rq");
-            Scanner reader = new Scanner(file);
-            while (reader.hasNextLine()) {
-              query += reader.nextLine();
-            }
-            reader.close();
-            query = query.replaceAll("<city-id>", cityId);
-          } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-          }
+        BufferedReader bufferedReader = fileReader.readFile(this.queryLocator + "school.rq");
+        Scanner reader = new Scanner(bufferedReader);
+        while (reader.hasNextLine()) {
+            query += reader.nextLine();
+        }
+        reader.close();
+        query = query.replaceAll("<city-id>", cityId);
 
         return query;
     }

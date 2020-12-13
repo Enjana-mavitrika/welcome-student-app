@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q42807  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q42807> ;
-        sch:lattitude   43.836944444 ;
-        sch:longitude   4.36 ;
-        sch:name        "Nîmes"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q42807> .

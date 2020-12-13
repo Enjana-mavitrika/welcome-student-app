@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q1289  a        sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q1289> ;
-        sch:lattitude   45.186944444 ;
-        sch:longitude   5.726388888 ;
-        sch:name        "Grenoble"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q1289> .

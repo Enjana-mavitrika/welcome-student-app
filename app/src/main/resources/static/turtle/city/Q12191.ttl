@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q12191  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q12191> ;
-        sch:lattitude   47.217222222 ;
-        sch:longitude   -1.553888888 ;
-        sch:name        "Nantes"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q12191> .

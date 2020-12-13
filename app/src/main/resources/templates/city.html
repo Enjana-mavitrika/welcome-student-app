@@ -6,40 +6,40 @@
     <title>Student Welcome App</title>
     <!-- INCLUDE SHARED LINKS  -->
     <link th:replace="links :: link" />
-    <!-- INCLUDE SHARED SCRIPTS  -->
-    <script th:replace="scripts :: script"></script>
 </head>
 
 <body>
     <div class="uk-container">
         <h1>Ville de [[ ${city.name} ]]</h1>
-            <table class="uk-table uk-table-hover">
-                <tr>
-                    <th>Nom</th>
-                    <td>[[ ${city.name} ]]</td>
-                </tr>
-                <tr>
-                    <th>Identifiant</th>
-                    <td>[[ ${city.qid} ]]</td>
-                </tr>
-                <tr>
-                    <th>Latitude</th>
-                    <td>[[ ${city.latitude} ]]</td>
-                </tr>
-                <tr>
-                    <th>Longitude</th>
-                    <td>[[ ${city.longitude} ]]</td>
-                </tr>
-                <tr>
-                    <th>Page web</th>
-                    <td>[[ ${city.url} ]]</td>
-                </tr>
-            </table>
-            <p><a class="uk-button uk-button-primary uk-align-right" th:href="@{${city.qid}}" type="text/ttl">Télécharger
-                .ttl</a></p>
+        <table class="uk-table uk-table-hover">
+            <tr>
+                <th>Nom</th>
+                <td>[[ ${city.name} ]]</td>
+            </tr>
+            <tr>
+                <th>Identifiant</th>
+                <td>[[ ${city.qid} ]]</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>[[ ${city.latitude} ]]</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>[[ ${city.longitude} ]]</td>
+            </tr>
+            <tr>
+                <th>Page web</th>
+                <td>[[ ${city.url} ]]</td>
+            </tr>
+        </table>
+        <p><button class="uk-button uk-button-primary uk-align-right" th:data-uri="${city.qid}"
+                id="machine-simulator"><span uk-icon="icon: download; ratio: 1.5"></span><br />Simulate content
+                negotiation to get .ttl</button></p>
+
         <table class="uk-table uk-table-striped">
             <tr>
-                <th>Les organisations éducatives</th>
+                <th>Les organisations éducatives à [[ ${city.name} ]]</th>
                 <th>Longitude</th>
                 <th>Latitude</th>
             </tr>
@@ -55,7 +55,49 @@
                 <td colspan="3">Aucune information disponible</td>
             </tr>
         </table>
+
+        <table class="uk-table uk-table-striped">
+            <tr>
+                <th>Les arrêts qui se trouvent à une distance max de 500 m d'une organisation éducative</th>
+                <th>Organisation éducative</th>
+                <th>Distance</th>
+            </tr>
+            <tr th:each="stop : ${stopsAround}">
+                <td>
+                    <span uk-icon="location"></span>
+                    <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                </td>
+                <td>[[ ${stop.refSchool} ]]</td>
+                <td>[[ ${#numbers.formatDecimal(stop.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m</td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(stopsAround)}">
+                <td colspan="3">Aucune information disponible</td>
+            </tr>
+        </table>
+
+        <table class="uk-table uk-table-striped">
+            <tr>
+                <th>Les arrêts à [[ ${city.name} ]]</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+            </tr>
+            <tr th:each="stop : ${stops}">
+                <td>
+                    <span uk-icon="location"></span>
+                    <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                </td>
+                <td>[[ ${stop.longitude} ]]</td>
+                <td>[[ ${stop.latitude} ]]</td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(stops)}">
+                <td colspan="3">Aucune information disponible</td>
+            </tr>
+        </table>
     </div>
+
+
+    <!-- INCLUDE SHARED SCRIPTS  -->
+    <script th:replace="scripts :: script"></script>
 </body>
 
 </html>

@@ -30,7 +30,7 @@ public class School {
         this.name = name;
         this.latitude = this.getLatitude(geo);
         this.longitude = this.getLongitude(geo);
-        this.geo = geo;
+        this.geo = "Point(" + latitude + " " + longitude + ")";
         this.website = website;
     }
 

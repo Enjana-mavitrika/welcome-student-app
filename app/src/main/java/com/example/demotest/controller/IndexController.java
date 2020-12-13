@@ -1,16 +1,13 @@
 package com.example.demotest.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
 import com.example.demotest.modele.City;
 import com.example.demotest.modele.School;
-import com.example.demotest.modele.StasStop;
+import com.example.demotest.modele.Stop;
 import com.example.demotest.service.CsvDataCollector;
 import com.example.demotest.service.JsonDataCollector;
 import com.example.demotest.service.RDFCounsumer;
@@ -52,9 +49,9 @@ public class IndexController {
         cities = rdfCounsumer.fetchCities();
         model.addAttribute("cities", cities);
         // load bus stops from csv file
-        List<StasStop> stops = csvDataCollector.collectStasStopsCSV();
+        List<Stop> stops = csvDataCollector.collectStasStopsCSV();
         // populate triplestore with loaded stops
-        for (StasStop stop : stops) {
+        for (Stop stop : stops) {
             rdfProducer.sendToTripleStore(stop, "Q42716");
         }
 
@@ -73,32 +70,36 @@ public class IndexController {
         City city = rdfCounsumer.fetchCity(id);
         // fetch schools in the city
         schools = rdfCounsumer.fetchSchools(city.qid);
+        // fetch stops with distance less than 200m of at least one school in the city 
+        List<Stop> stopsAround = rdfCounsumer.fetchStopsAroundSchool(city.qid, 200);
+        // fetch stops in the city
+        List<Stop> stops = rdfCounsumer.fetchStops(city.qid);
         // send data to model view
         model.addAttribute("city", city);
         model.addAttribute("schools", schools);
+        model.addAttribute("stops", stops);
+        model.addAttribute("stopsAround", stopsAround);
 
         return "city";
     }
 
     @GetMapping("/city/{id}")
-    public void cityTurtle(@RequestHeader(value="Content-Type", required = false) String contentType, @PathVariable String id,
-            HttpServletResponse response) {
-        //if (contentType != null && contentType.equals("text/ttl")) {
+    public Object cityTurtle(@RequestHeader(value = "Content-Type", required = false) String contentType,
+            @PathVariable String id, HttpServletResponse response) {
+        System.out.println("Content-Type = " + contentType);
+        if (contentType != null && contentType.equals("text/turtle")) {
             try {
-                File initialFile = new File(RDFProducer.CITY_TTL_PATH + id + ".ttl");
-                // get your file as InputStream
-                InputStream is = new FileInputStream(initialFile);
-                // copy it to response's OutputStream
-                org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
-                response.setContentType("application/ttl");
+                rdfCounsumer.describeCity(id, response.getOutputStream());
+                response.setContentType("text/turtle");
                 response.setHeader("Content-Disposition", "attachment; filename=\"" + id + ".ttl\"");
                 response.flushBuffer();
-
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-        //}
-        //return "redirect:/page/city/" + id;
+            return null;
+        } else {
+            return "redirect:/page/city/" + id;
+        }
     }
 
 }
