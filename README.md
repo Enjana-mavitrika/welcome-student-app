@@ -1,0 +1,14 @@
+- setup triple store...OK
+- use existing ontologies(schema)...OK
+- define customize vocabulary.......TODO
+- documentation ontology...........TODO
+- populate triple :
+    - json
+    - csv
+    - Wikidata
+- Website front end of the data....OK
+- show group of entities in table...OK
+- show group of entities in map....TODO
+- extract data with SPARQL.........OK
+- find bus stop around a school....TODO
+- add meteo for each city..........TODO
