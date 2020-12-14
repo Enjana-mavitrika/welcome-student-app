@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30297078  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q7880> ;
+        sch:identifier        <http://institut-clement-ader.org> ;
+        sch:lattitude         43.563021 ;
+        sch:longitude         1.490584 ;
+        sch:name              "Institut Clément Ader"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30297078> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q28057967  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42168> ;
+        sch:identifier        <https://www.uca.fr> ;
+        sch:lattitude         45.76173 ;
+        sch:longitude         3.113075 ;
+        sch:name              "Université Clermont Auvergne"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q28057967> .

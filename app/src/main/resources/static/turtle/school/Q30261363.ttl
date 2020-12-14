@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30261363  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://www.incia.u-bordeaux1.fr/> ;
+        sch:lattitude         44.82496 ;
+        sch:longitude         -0.6068 ;
+        sch:name              "INCIA"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30261363> .

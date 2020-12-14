@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q273475  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <http://ensip.univ-poitiers.fr/> ;
+        sch:lattitude         46.56861111 ;
+        sch:longitude         0.38361111 ;
+        sch:name              "École nationale supérieure d'ingénieurs de Poitiers"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q273475> .

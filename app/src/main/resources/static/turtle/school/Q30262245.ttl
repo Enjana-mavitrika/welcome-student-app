@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30262245  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42168> ;
+        sch:identifier        <http://geolab.univ-bpclermont.fr/> ;
+        sch:lattitude         45.770362 ;
+        sch:longitude         3.088629 ;
+        sch:name              "GEOLAB UMR 6042"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30262245> .

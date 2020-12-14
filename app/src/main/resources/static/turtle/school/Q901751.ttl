@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q901751  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1289> ;
+        sch:identifier        <http://www.esrf.eu/decouvrir> ;
+        sch:lattitude         45.208777777 ;
+        sch:longitude         5.690055555 ;
+        sch:name              "European synchrotron radiation facility"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q901751> .

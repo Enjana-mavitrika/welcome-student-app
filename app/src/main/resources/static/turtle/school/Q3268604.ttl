@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268604  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <https://www.lyc-camilleguerin.fr/> ;
+        sch:lattitude         46.569 ;
+        sch:longitude         0.368296 ;
+        sch:name              "lycée Camille-Guérin"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268604> .

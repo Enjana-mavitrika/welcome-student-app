@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q50040734  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q37776> ;
+        sch:identifier        <https://chrono-environnement.univ-fcomte.fr/> ;
+        sch:lattitude         47.245706 ;
+        sch:longitude         5.984609 ;
+        sch:name              "Laboratoire Chrono-Environnement"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q50040734> .

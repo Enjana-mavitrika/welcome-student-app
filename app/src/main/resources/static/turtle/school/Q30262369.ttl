@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30262369  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q37776> ;
+        sch:identifier        <http://mshe.univ-fcomte.fr/actualites> ;
+        sch:lattitude         47.233694 ;
+        sch:longitude         6.025906 ;
+        sch:name              "Maison des Sciences de l'Homme et de l'Environnement Claude Nicolas Ledoux"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30262369> .

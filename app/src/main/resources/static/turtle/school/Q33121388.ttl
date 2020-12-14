@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q33121388  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47045> ;
+        sch:identifier        <http://umr-entropie.ird.nc/index.php/coreus> ;
+        sch:lattitude         -20.894049 ;
+        sch:longitude         55.464511 ;
+        sch:name              "ENTROPIE"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q33121388> .

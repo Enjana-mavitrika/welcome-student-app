@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q829449  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q37776> ;
+        sch:identifier        <http://www.univ-fcomte.fr> ;
+        sch:lattitude         47.24 ;
+        sch:longitude         6.02 ;
+        sch:name              "université de Franche-Comté"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q829449> .

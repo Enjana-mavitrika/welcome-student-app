@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2994576  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <https://www.poitiers.fr/c__84_317__Conservatoire_de_Poitiers.html> ;
+        sch:lattitude         46.5864 ;
+        sch:longitude         0.34325 ;
+        sch:name              "Conservatoire à rayonnement régional de Poitiers"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2994576> .

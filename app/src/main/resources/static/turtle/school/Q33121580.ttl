@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q33121580  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://www.rmsb.u-bordeaux2.fr/> ;
+        sch:lattitude         44.808625 ;
+        sch:longitude         -0.593502 ;
+        sch:name              "Centre de Résonance Magnétique des Systèmes Biologiques"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q33121580> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q921803  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1289> ;
+        sch:identifier        <http://www.iram-institute.org/> ;
+        sch:lattitude         45.193583333 ;
+        sch:longitude         5.760694444 ;
+        sch:name              "Institut de radioastronomie millimétrique"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q921803> .

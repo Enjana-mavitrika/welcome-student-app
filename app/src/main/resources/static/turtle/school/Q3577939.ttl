@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3577939  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q12193> ;
+        sch:identifier        <http://www.defense.gouv.fr/marine/ressources-humaines/ecoles-et-formations/ecole-des-mousses/ecole-des-mousses/ecole-des-mousses2> ;
+        sch:lattitude         48.3689 ;
+        sch:longitude         -4.52528 ;
+        sch:name              "École des mousses"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3577939> .

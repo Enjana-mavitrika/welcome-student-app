@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2994560  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42168> ;
+        sch:identifier        <http://www.clermont-ferrand.fr/-Conservatoire-Emmanuel-Chabrier-127-> ;
+        sch:lattitude         45.776 ;
+        sch:longitude         3.08756 ;
+        sch:name              "Conservatoire à rayonnement régional de Clermont-Ferrand"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2994560> .

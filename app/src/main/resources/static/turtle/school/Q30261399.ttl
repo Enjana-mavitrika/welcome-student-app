@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30261399  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://www.iins.u-bordeaux.fr/> ;
+        sch:lattitude         44.827063 ;
+        sch:longitude         -0.600875 ;
+        sch:name              "Institut Interdisciplinaire de Neuroscience"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30261399> .

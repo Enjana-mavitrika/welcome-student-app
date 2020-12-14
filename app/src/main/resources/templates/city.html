@@ -6,6 +6,13 @@
     <title>Student Welcome App</title>
     <!-- INCLUDE SHARED LINKS  -->
     <link th:replace="links :: link" />
+
+    <style>
+        #maCarte{
+            height: 400px;
+        }
+    </style>
+
     <!-- INCLUDE SHARED SCRIPTS  -->
     <script th:replace="scripts :: script"></script>
 </head>
@@ -36,7 +43,19 @@
                 </tr>
             </table>
             <p><a class="uk-button uk-button-primary uk-align-right" th:href="@{${city.qid}}" type="text/ttl">Télécharger
-                .ttl</a></p>
+                .ttl</a>
+            </p>
+        
+            <div class="uk-alert-primary" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>Consultez quelques endroits clés (écoles, arrêts de transport, etc.) de la ville de [[ ${city.name} ]] sur la carte</p>
+            </div>
+
+            <div id="maCarte">
+                la carte ici
+            </div>
+
+
         <table class="uk-table uk-table-striped">
             <tr>
                 <th>Les organisations éducatives</th>
@@ -55,6 +74,87 @@
                 <td colspan="3">Aucune information disponible</td>
             </tr>
         </table>
+
+
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var city = /*[[${city}]]*/ "Test1";
+
+            /*Données de test*/
+            var schools = {
+                "Université Jean Monnet" : {"latitude" :45.42672 , "longitude":4.39166},
+                "emse" : {"latitude" :45.4254 , "longitude": 4.3816},
+                "Emlyon Business School" : {"latitude" :45.42611111 , "longitude": 4.393888},
+                "Telecom Saint-Étienne" : {"latitude" :45.4517 , "longitude": 4.38718},
+                "Institut d'Optique Graduate School" : {"latitude" :45.714444444, "longitude": 2.203333333}
+            }
+
+            var arrets = {
+                "chateaucreux" : {"latitude" :45.4266 , "longitude":4.3876},
+                "Bicentenaire" : {"latitude" :45.42675 , "longitude": 4.3998},
+                "Bellevue" : {"latitude" :45.4275 , "longitude": 4.4322},
+                "Trefilerie" : {"latitude" :45.32334 , "longitude": 4.235353},
+                "Anatole France" : {"latitude" :45.714444444, "longitude": 4.3348}
+            }
+
+           
+            /* Initialisation de la carte */
+            var carte = L.map('maCarte').setView([city.latitude, city.longitude], 13);
+            /* pour le reglage du zoom automatique*/
+            var tabMarqueurs = []
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                minZoom: 6,
+                maxZoom: 16
+            }).addTo(carte);
+
+            /* Pour grouper les marqueurs qui sont proches */
+            var marqueursClusters = L.markerClusterGroup();
+           
+            /* customization des icones de marqueurs*/
+            var iconArret = L.icon({
+                iconUrl: "https://static.thenounproject.com/png/368019-200.png?fbclid=IwAR1rAfuEV_ZHecbrR6_ZqCbcpdeSQ09tb2u6MJTJlhVhHBhwGzm-U57PizU",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50],
+                popupAnchor: [0, -50],
+            });
+            
+            var iconSchool = L.icon({
+                iconUrl: "https://img.icons8.com/wired/64/000000/school.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50],
+                popupAnchor: [0, -50],
+            });
+            
+            /*Ajout du marqueur sur la ville courant*/
+            var marqueurVille = L.marker([city.latitude, city.longitude]);
+            marqueurVille.bindPopup("<p>"+city.name+"</p>")
+            marqueursClusters.addLayer(marqueurVille)
+
+            /*Ajout des marqueurs des écoles*/
+            for(school in schools){
+                var marqueurSchool = L.marker([schools[school].latitude, schools[school].longitude],{icon:iconSchool});
+    
+                marqueurSchool.bindPopup("<p>"+school+"</p>")
+                marqueursClusters.addLayer(marqueurSchool)     
+            };
+
+            /*Ajout des marqueurs des arrêts de transport*/
+            for(arret in arrets){
+                var marqueurArret = L.marker([arrets[arret].latitude, arrets[arret].longitude],{icon:iconArret});
+                marqueurArret.bindPopup("<p>"+arret+"</p>")
+    
+                /* on ajoute le marqueur au groupe */
+                marqueursClusters.addLayer(marqueurArret)    
+            };
+
+            carte.addLayer(marqueursClusters)
+
+            /*]]>*/
+
+        </script>
+
     </div>
 </body>
 

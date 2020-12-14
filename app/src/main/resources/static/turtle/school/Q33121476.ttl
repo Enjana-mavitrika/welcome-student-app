@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q33121476  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <http://migrinter.labo.univ-poitiers.fr/> ;
+        sch:lattitude         46.569155 ;
+        sch:longitude         0.385145 ;
+        sch:name              "MIGRINTER"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q33121476> .

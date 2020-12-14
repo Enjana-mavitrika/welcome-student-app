@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268781  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q12193> ;
+        sch:identifier        <http://www.lycee-kerichen.org/> ;
+        sch:lattitude         48.4051 ;
+        sch:longitude         -4.4837 ;
+        sch:name              "lycée La Pérouse-Kerichen"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268781> .

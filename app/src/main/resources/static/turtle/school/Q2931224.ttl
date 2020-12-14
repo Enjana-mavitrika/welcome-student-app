@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2931224  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1289> ;
+        sch:identifier        <http://portail.cea.fr/Pages/le-cea/les-centres-cea/grenoble.aspx> ;
+        sch:lattitude         45.201045 ;
+        sch:longitude         5.70154 ;
+        sch:name              "CEA Grenoble"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2931224> .

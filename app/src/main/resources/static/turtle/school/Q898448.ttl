@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q898448  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
+        sch:identifier        <https://www.institutoptique.fr> ;
+        sch:lattitude         48.714444444 ;
+        sch:longitude         2.203333333 ;
+        sch:name              "Institut d'Optique Graduate School"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q898448> .

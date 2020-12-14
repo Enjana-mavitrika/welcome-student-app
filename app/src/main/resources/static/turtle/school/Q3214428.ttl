@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3214428  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <https://www.lias-lab.fr/> ;
+        sch:lattitude         46.568 ;
+        sch:longitude         0.3834 ;
+        sch:name              "Laboratoire d'informatique et d'automatique pour les systèmes"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3214428> .

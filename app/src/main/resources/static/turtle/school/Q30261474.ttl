@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30261474  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <http://iphep.labo.univ-poitiers.fr/> ;
+        sch:lattitude         46.586053 ;
+        sch:longitude         0.345833 ;
+        sch:name              "Institut de Paléoprimatologie, Paléontologie Humaine : Évolution et Paléoenvironnements"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30261474> .

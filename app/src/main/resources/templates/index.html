@@ -6,6 +6,13 @@
     <title>Student Welcome App</title>
     <!-- INCLUDE SHARED LINKS  -->
     <link th:replace="links :: link" />
+
+    <style>
+        #maCarte{
+            height: 450px;
+        }
+    </style>
+
     <!-- INCLUDE SHARED SCRIPTS  -->
     <script th:replace="scripts :: script"></script>
 </head>
@@ -16,7 +23,16 @@
         <h1>Bienvenue sur Student welcome App</h1>
         <div class="uk-alert-primary" uk-alert>
             <a class="uk-alert-close" uk-close></a>
-            <p>Sélectionner votre ville</p>
+            <p>Sélectionnez votre ville sur la carte</p>
+        </div>
+
+        <div id="maCarte">
+            
+        </div>
+
+        <div class="uk-alert-primary" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p>Sélectionnez votre ville</p>
         </div>
         <table class="uk-table uk-table-striped">
             <tr>
@@ -33,6 +49,44 @@
                 <td>[[ ${city.latitude} ]]</td>
             </tr>
         </table>
+        
+        <script th:inline="javascript">
+            /* Initialisation de la carte */
+            var carte = L.map('maCarte').setView([45.433888888, 4.389722222], 13);
+            /* pour le reglage du zoom automatique*/
+            var tabMarqueurs = []
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(carte);
+
+            /* Pour grouper les marqueurs qui sont proches */
+            var marqueursClusters = L.markerClusterGroup();
+           
+            /*<![CDATA[*/
+                var villes = /*[[${cities}]]*/ "Test";
+
+                for(ville in villes){
+                    var marqueur = L.marker([villes[ville].latitude, villes[ville].longitude]);
+                    marqueur.bindPopup("<a href="+villes[ville].url+">"+villes[ville].name+"</a>")
+                    /* on ajoute le marqueur au groupe */
+                    marqueursClusters.addLayer(marqueur)
+                    
+                    /* ajout du marqueur dans le tableau des marqueurs*/
+                    tabMarqueurs.push(marqueur)
+                };
+                /* On regroupe les marqueurs dans un groupe*/
+                var groupe = new L.featureGroup(tabMarqueurs)
+                /* On adapte le zoom à tout le groupe*/
+                carte.fitBounds(groupe.getBounds())
+
+                carte.addLayer(marqueursClusters)
+
+            /*]]>*/
+
+        </script>
     </div>
 
 </body>

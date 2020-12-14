@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2994549  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q37776> ;
+        sch:identifier        <http://www.besancon.fr/index.php?p=1202> ;
+        sch:lattitude         47.236694444 ;
+        sch:longitude         6.033361111 ;
+        sch:name              "conservatoire à rayonnement régional de Besançon"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2994549> .

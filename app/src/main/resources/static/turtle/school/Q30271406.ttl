@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30271406  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1289> ;
+        sch:identifier        <http://www.fondation-nanosciences.fr/> ;
+        sch:lattitude         45.203412 ;
+        sch:longitude         5.701757 ;
+        sch:name              "Nanosciences aux Limites de la Nanoélectronique"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30271406> .

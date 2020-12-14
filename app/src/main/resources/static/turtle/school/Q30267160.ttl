@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30267160  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <http://ebi.labo.univ-poitiers.fr/> ;
+        sch:lattitude         46.568555 ;
+        sch:longitude         0.379445 ;
+        sch:name              "EBI"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30267160> .

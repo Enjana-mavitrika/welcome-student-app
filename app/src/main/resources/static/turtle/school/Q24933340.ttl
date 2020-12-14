@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q24933340  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42168> ;
+        sch:identifier        <https://www.chu-clermontferrand.fr/> ;
+        sch:lattitude         45.759563 ;
+        sch:longitude         3.09111 ;
+        sch:name              "centre hospitalier universitaire de Clermont-Ferrand"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q24933340> .

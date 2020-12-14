@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30262331  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42168> ;
+        sch:identifier        <http://lapsco.univ-bpclermont.fr/?lang=fr> ;
+        sch:lattitude         45.775283 ;
+        sch:longitude         3.092186 ;
+        sch:name              "LAPSCO"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30262331> .

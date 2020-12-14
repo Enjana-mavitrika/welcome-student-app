@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q612648  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42168> ;
+        sch:identifier        <http://www.univ-bpclermont.fr/> ;
+        sch:lattitude         45.76173 ;
+        sch:longitude         3.113075 ;
+        sch:name              "université Blaise-Pascal - Clermont II"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q612648> .

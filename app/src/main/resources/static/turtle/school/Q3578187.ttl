@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3578187  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q90> ;
+        sch:identifier        <http://www.paris-belleville.archi.fr> ;
+        sch:lattitude         48.8747 ;
+        sch:longitude         2.37417 ;
+        sch:name              "École nationale supérieure d'architecture de Paris-Belleville"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3578187> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q19407044  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1289> ;
+        sch:identifier        <https://iab.univ-grenoble-alpes.fr/> ;
+        sch:lattitude         45.2 ;
+        sch:longitude         5.74833 ;
+        sch:name              "Institut pour l'avancée des biosciences"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q19407044> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30261385  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1479> ;
+        sch:identifier        <http://www.ibgc.u-bordeaux2.fr/> ;
+        sch:lattitude         44.824363 ;
+        sch:longitude         -0.607318 ;
+        sch:name              "Institut de Biochimie et Génétique Cellulaires"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30261385> .

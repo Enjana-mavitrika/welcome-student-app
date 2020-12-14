@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q1857334  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q12193> ;
+        sch:identifier        <http://www.univ-brest.fr/> ;
+        sch:lattitude         48.398889 ;
+        sch:longitude         -4.498889 ;
+        sch:name              "université de Bretagne-Occidentale"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q1857334> .

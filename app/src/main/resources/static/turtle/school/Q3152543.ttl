@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3152543  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q37776> ;
+        sch:identifier        <http://isifc.univ-fcomte.fr> ;
+        sch:lattitude         47.2511 ;
+        sch:longitude         5.99489 ;
+        sch:name              "Institut supérieur d'ingénieurs de Franche-Comté"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3152543> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3577915  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1289> ;
+        sch:identifier        <http://www.ecoledespupillesdelair.fr> ;
+        sch:lattitude         45.2209 ;
+        sch:longitude         5.80339 ;
+        sch:name              "École des Pupilles de l'Air 749 Grenoble-Montbonnot"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3577915> .

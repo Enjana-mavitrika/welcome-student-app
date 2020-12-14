@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q30262541  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47045> ;
+        sch:identifier        <http://osur.univ-reunion.fr/> ;
+        sch:lattitude         -20.90133 ;
+        sch:longitude         55.482895 ;
+        sch:name              "OSU-REUNION"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q30262541> .

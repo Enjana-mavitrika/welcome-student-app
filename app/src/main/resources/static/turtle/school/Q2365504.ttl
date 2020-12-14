@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2365504  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q12193> ;
+        sch:identifier        <http://www.lyceenaval.fr> ;
+        sch:lattitude         48.3691 ;
+        sch:longitude         -4.5254 ;
+        sch:name              "lycée naval de Brest"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2365504> .

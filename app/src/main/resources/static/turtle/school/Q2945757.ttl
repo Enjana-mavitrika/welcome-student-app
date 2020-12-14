@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2945757  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q12193> ;
+        sch:identifier        <https://www.chu-brest.fr> ;
+        sch:lattitude         48.3932 ;
+        sch:longitude         -4.48785 ;
+        sch:name              "centre hospitalier universitaire de Brest"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2945757> .

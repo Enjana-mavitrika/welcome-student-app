@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q277888  a          sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q7880> ;
+        sch:identifier        <https://www.math.univ-toulouse.fr/?lang=fr> ;
+        sch:lattitude         43.56178 ;
+        sch:longitude         1.465682 ;
+        sch:name              "Institut de mathématiques de Toulouse"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q277888> .

@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q2994486  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q12193> ;
+        sch:identifier        <http://www.cbnbrest.fr/> ;
+        sch:lattitude         48.4021 ;
+        sch:longitude         -4.4473 ;
+        sch:name              "conservatoire botanique national de Brest"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q2994486> .

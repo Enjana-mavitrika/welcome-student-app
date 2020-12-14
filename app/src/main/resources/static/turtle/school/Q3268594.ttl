@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3268594  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q42168> ;
+        sch:identifier        <http://lycee.blaisepascal.fr/> ;
+        sch:lattitude         45.78 ;
+        sch:longitude         3.089722222 ;
+        sch:name              "lycée Blaise-Pascal"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3268594> .

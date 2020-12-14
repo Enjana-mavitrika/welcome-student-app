@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q16507819  a        sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q47045> ;
+        sch:identifier        <http://www.tarlimoulislam.re/> ;
+        sch:lattitude         -20.8799 ;
+        sch:longitude         55.4519 ;
+        sch:name              "École Medersa Tarlimoul Islam"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q16507819> .

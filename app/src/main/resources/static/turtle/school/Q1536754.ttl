@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q1536754  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q1289> ;
+        sch:identifier        <http://www.ill.eu/fr> ;
+        sch:lattitude         45.206239 ;
+        sch:longitude         5.692774 ;
+        sch:name              "Institut Laue-Langevin"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q1536754> .

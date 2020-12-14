@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3578235  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q37776> ;
+        sch:identifier        <http://www.ens2m.fr> ;
+        sch:lattitude         47.251388888 ;
+        sch:longitude         5.993611111 ;
+        sch:name              "École nationale supérieure de mécanique et des microtechniques de Besançon"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3578235> .

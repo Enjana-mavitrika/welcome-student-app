@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3359833  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q37776> ;
+        sch:identifier        <http://www.ubfc.fr/> ;
+        sch:lattitude         47.243055555 ;
+        sch:longitude         6.021944444 ;
+        sch:name              "Université Bourgogne Franche-Comté"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3359833> .

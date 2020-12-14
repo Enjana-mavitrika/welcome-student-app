@@ -1,0 +1,10 @@
+@prefix sch:   <https://schema.org/> .
+@prefix ex_school: <http://localhost:8080/school/> .
+
+ex_school:Q3151983  a         sch:School ;
+        sch:containedInPlace  <http://localhost:8080/city/Q6616> ;
+        sch:identifier        <http://ic2mp.labo.univ-poitiers.fr/> ;
+        sch:lattitude         46.56726 ;
+        sch:longitude         0.38106 ;
+        sch:name              "Institut de chimie des milieux et des matériaux de Poitiers"@fr ;
+        sch:url               <http://localhost:8080/page/school/Q3151983> .
