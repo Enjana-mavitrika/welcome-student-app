@@ -68,25 +68,6 @@
                 <td colspan="3">Aucune information disponible</td>
             </tr>
         </table>
-
-        <table class="uk-table uk-table-striped">
-            <tr>
-                <th>Les arrêts à [[ ${city.name} ]]</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
-            </tr>
-            <tr th:each="stop : ${stops}">
-                <td>
-                    <span uk-icon="location"></span>
-                    <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
-                </td>
-                <td>[[ ${stop.longitude} ]]</td>
-                <td>[[ ${stop.latitude} ]]</td>
-            </tr>
-            <tr th:if="${#lists.isEmpty(stops)}">
-                <td colspan="3">Aucune information disponible</td>
-            </tr>
-        </table>
     </div>
 
 
