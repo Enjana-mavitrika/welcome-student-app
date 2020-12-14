@@ -15,12 +15,10 @@ Application web basé sur la technologie __Web semantique__ pour aider les nouve
 | Populate triple multiple source | DONE |
 | Website front end of the data  | DONE |
 | Show group of entities in HTML TABLE | DONE |
-| Extract data with SPARQL (wikidata & apache jena-fuseki-geospatial) | DONE |
-
+| Extract data with SPARQL (wikidata & apache jena-fuseki-geosparql) | DONE |
 
 | __Fonctionnalités avancées__   |  __Statut__    |
-|---------------------------|:----------:|
-
+|--------------------------------|:--------------:|
 | Show group of entities in MAP (openstreet map) | DONE |
 | Add content negotiation (humman and machine) | DONE |
 | FILTER bus stop around schools with MAX distance | DONE | 
