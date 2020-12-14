@@ -37,7 +37,7 @@ Application web basé sur la technologie __Web semantique__ pour aider les nouve
 2. Lancer le serveur apache jena-fuseki-geosparql :
     - Entrez dans le répertoire `geosparql-fuseki-1.1.2/bin/`
     - Ouvrez un terminal dans le répertoire
-    - Exécutez le script `./start_triplestore_server`
+    - Exécutez le script `./start_triplestore_server.sh`
 3. Lancer l'application web :
     - Entrez dans le répértoire `app/`
     - Ouvrez le répértoire dans Visual Studio Code 
