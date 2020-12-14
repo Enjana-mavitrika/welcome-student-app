@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q6441  a        sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q6441> ;
-        sch:lattitude   43.610919444 ;
-        sch:longitude   3.877230555 ;
-        sch:name        "Montpellier"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q6441> .

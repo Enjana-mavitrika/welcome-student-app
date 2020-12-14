@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q172455  a      sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q172455> ;
-        sch:lattitude   48.835277777 ;
-        sch:longitude   2.241388888 ;
-        sch:name        "Boulogne-Billancourt"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q172455> .

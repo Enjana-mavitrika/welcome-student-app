@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q79815  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q79815> ;
-        sch:lattitude   47.748611111 ;
-        sch:longitude   7.339166666 ;
-        sch:name        "Mulhouse"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q79815> .

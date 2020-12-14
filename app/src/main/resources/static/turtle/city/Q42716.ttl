@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q42716  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q42716> ;
-        sch:lattitude   45.433888888 ;
-        sch:longitude   4.389722222 ;
-        sch:name        "Saint-Étienne"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q42716> .

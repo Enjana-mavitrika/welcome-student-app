@@ -1,29 +1,31 @@
 package com.example.demotest.service;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demotest.modele.StasStop;
+import javax.inject.Inject;
+
+import com.example.demotest.modele.Stop;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-
 import org.springframework.stereotype.Service;
 
 @Service
 public class CsvDataCollector {
 
-    private final String CSV_DATA_LOCATOR = "src/main/resources/data/csv/";
+	@Inject 
+	ResourceFileReader fileReader;
+
+    private final String CSV_DATA_LOCATOR = "data/csv/";
 	private final String STAS_STOP_FILE = "stops.csv";
 
-    public List<StasStop> collectStasStopsCSV() {
-		List<StasStop> stops = new ArrayList<StasStop>();
+    public List<Stop> collectStasStopsCSV() {
+		List<Stop> stops = new ArrayList<Stop>();
 		try {
-            Reader reader = Files.newBufferedReader(Paths.get(CSV_DATA_LOCATOR + STAS_STOP_FILE));
-		    CSVReader csvReader = new CSVReader(reader);
+			BufferedReader reader = fileReader.readFile(CSV_DATA_LOCATOR + STAS_STOP_FILE);
+			CSVReader csvReader = new CSVReader(reader);
 		    // read one record at a time
 			String[] record;
 			boolean isFirstLine = true;
@@ -32,7 +34,7 @@ public class CsvDataCollector {
 					isFirstLine = false;
 					continue;
 				}
-				StasStop stop = new StasStop(record[0], record[1], record[3], record[4]);
+				Stop stop = new Stop(record[0], record[1], record[2], record[3]);
 				stops.add(stop);
 			}
 		    csvReader.close();

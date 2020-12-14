@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q45656  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q45656> ;
-        sch:lattitude   45.834444444 ;
-        sch:longitude   1.261666666 ;
-        sch:name        "Limoges"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q45656> .

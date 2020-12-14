@@ -1,9 +1,0 @@
-@prefix ex_stas: <http://localhost:8080/stas/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_stas:630  a                sch:BusStop ;
-        sch:containedInPlace  <http://localhost:8080/city/Q42716> ;
-        sch:lattitude         0.0 ;
-        sch:longitude         4.4373920545 ;
-        sch:name              "TERRENOIRE"@fr ;
-        sch:url               <http://localhost:8080/page/city/630> .

@@ -8,6 +8,8 @@ SELECT DISTINCT ?item ?itemLabel ?geo ?website WHERE {
         wdt:P625 ?geo;
         wdt:P856 ?website;
         wdt:P31/wdt:P279* wd:Q5341295.
-   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],fr". }
+  OPTIONAL { ?item wdt:P2196 ?nbEtudiant }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],fr". }
 }
-LIMIT 10
+ORDER BY DESC(?nbEtudiant)
+LIMIT 15

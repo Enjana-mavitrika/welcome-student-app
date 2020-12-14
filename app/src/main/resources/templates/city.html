@@ -42,9 +42,6 @@
                     <td>[[ ${city.url} ]]</td>
                 </tr>
             </table>
-            <p><a class="uk-button uk-button-primary uk-align-right" th:href="@{${city.qid}}" type="text/ttl">Télécharger
-                .ttl</a>
-            </p>
         
             <div class="uk-alert-primary" uk-alert>
                 <a class="uk-alert-close" uk-close></a>
@@ -52,13 +49,16 @@
             </div>
 
             <div id="maCarte">
-                la carte ici
+               
             </div>
-
+            <p><button class="uk-button uk-button-primary uk-align-right" th:data-uri="${city.qid}"
+                id="machine-simulator"><span uk-icon="icon: download; ratio: 1.5"></span><br />Simulate content
+                negotiation to get .ttl</button>
+            </p>
 
         <table class="uk-table uk-table-striped">
             <tr>
-                <th>Les organisations éducatives</th>
+                <th>Les organisations éducatives à [[ ${city.name} ]]</th>
                 <th>Longitude</th>
                 <th>Latitude</th>
             </tr>
@@ -75,27 +75,65 @@
             </tr>
         </table>
 
+        <table class="uk-table uk-table-striped">
+            <tr>
+                <th>Les arrêts qui se trouvent à une distance max de 500 m d'une organisation éducative</th>
+                <th>Organisation éducative</th>
+                <th>Distance</th>
+            </tr>
+            <tr th:each="stop : ${stopsAround}">
+                <td>
+                    <span uk-icon="location"></span>
+                    <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                </td>
+                <td>[[ ${stop.refSchool} ]]</td>
+                <td>[[ ${#numbers.formatDecimal(stop.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m</td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(stopsAround)}">
+                <td colspan="3">Aucune information disponible</td>
+            </tr>
+        </table>
+
+        <table class="uk-table uk-table-striped">
+            <tr>
+                <th>Les arrêts à [[ ${city.name} ]]</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+            </tr>
+            <tr th:each="stop : ${stops}">
+                <td>
+                    <span uk-icon="location"></span>
+                    <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                </td>
+                <td>[[ ${stop.longitude} ]]</td>
+                <td>[[ ${stop.latitude} ]]</td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(stops)}">
+                <td colspan="3">Aucune information disponible</td>
+            </tr>
+        </table>
 
         <script th:inline="javascript">
             /*<![CDATA[*/
             var city = /*[[${city}]]*/ "Test1";
+            var schools = /*[[${schools}]]*/ "Test2";
+            var stops = /*[[${stops}]]*/ "Test3";
 
             /*Données de test*/
-            var schools = {
+           /* var schools = {
                 "Université Jean Monnet" : {"latitude" :45.42672 , "longitude":4.39166},
                 "emse" : {"latitude" :45.4254 , "longitude": 4.3816},
                 "Emlyon Business School" : {"latitude" :45.42611111 , "longitude": 4.393888},
                 "Telecom Saint-Étienne" : {"latitude" :45.4517 , "longitude": 4.38718},
                 "Institut d'Optique Graduate School" : {"latitude" :45.714444444, "longitude": 2.203333333}
             }
-
-            var arrets = {
+            var stops = {
                 "chateaucreux" : {"latitude" :45.4266 , "longitude":4.3876},
                 "Bicentenaire" : {"latitude" :45.42675 , "longitude": 4.3998},
                 "Bellevue" : {"latitude" :45.4275 , "longitude": 4.4322},
                 "Trefilerie" : {"latitude" :45.32334 , "longitude": 4.235353},
                 "Anatole France" : {"latitude" :45.714444444, "longitude": 4.3348}
-            }
+            }*/
 
            
             /* Initialisation de la carte */
@@ -105,7 +143,7 @@
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                minZoom: 6,
+                minZoom: 4,
                 maxZoom: 16
             }).addTo(carte);
 
@@ -135,17 +173,14 @@
             /*Ajout des marqueurs des écoles*/
             for(school in schools){
                 var marqueurSchool = L.marker([schools[school].latitude, schools[school].longitude],{icon:iconSchool});
-    
-                marqueurSchool.bindPopup("<p>"+school+"</p>")
+                marqueurSchool.bindPopup("<p>"+schools[school].name+"</p>")
                 marqueursClusters.addLayer(marqueurSchool)     
             };
-
+           
             /*Ajout des marqueurs des arrêts de transport*/
-            for(arret in arrets){
-                var marqueurArret = L.marker([arrets[arret].latitude, arrets[arret].longitude],{icon:iconArret});
-                marqueurArret.bindPopup("<p>"+arret+"</p>")
-    
-                /* on ajoute le marqueur au groupe */
+            for(stop in stops){
+                var marqueurArret = L.marker([stops[stop].longitude, stops[stop].latitude],{icon:iconArret});
+                marqueurArret.bindPopup("<p>"+stops[stop].name+"</p>")            
                 marqueursClusters.addLayer(marqueurArret)    
             };
 
@@ -154,8 +189,7 @@
             /*]]>*/
 
         </script>
-
-    </div>
+    </div>   
 </body>
 
 </html>

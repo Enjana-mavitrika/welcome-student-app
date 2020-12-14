@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q47045  a       sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q47045> ;
-        sch:lattitude   -20.878888888 ;
-        sch:longitude   55.448055555 ;
-        sch:name        "Saint-Denis"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q47045> .

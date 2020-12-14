@@ -1,0 +1,17 @@
+00:29:16.405 [main] INFO  i.g.galbiston.geosparql_fuseki.Main - Arguments Received: [-rf, test.ttl, -c, -i, -d, test, -u]
+00:29:16.450 [main] INFO  i.g.g.g.DatasetOperations - Server Configuration: port=3030, datsetName=test, loopbackOnly=true, updateAllowed=true, inference=true, applyDefaultGeometry=false, validateGeometryLiteral=false, convertGeoPredicates=true, removeGeoPredicates=false, queryRewrite=true, tdbFile=null, fileGraphFormats=[FileGraphFormat{rdfFile=test.ttl, graphName=, rdfFormat=Turtle/pretty}], fileGraphDelimiters=[], indexEnabled=true, indexSizes=[-1, -1, -1], indexExpiries=[5000, 5000, 5000], spatialIndexFile=null, help=false
+00:29:16.489 [main] INFO  i.g.g.g.DatasetOperations - In-Memory Dataset
+00:29:16.795 [main] INFO  i.g.g.g.DatasetOperations - Reading RDF - Started - File: test.ttl, Graph Name: , RDF Format: Turtle/pretty
+00:29:16.935 [main] WARN  org.apache.sis.system - La variable environnementale «?SIS_DATA?» n’est pas définie.
+00:29:17.045 [main] INFO  i.g.g.g.DatasetOperations - Reading RDF - Completed - File: test.ttl, Graph Name: , RDF Format: Turtle/pretty
+00:29:17.047 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Convert Geo Predicates - Started
+00:29:17.069 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Convert Geo Predicates - Completed
+00:29:17.160 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Applying GeoSPARQL Schema - Started
+00:29:17.238 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - GeoSPARQL schema applied to graph: default
+00:29:17.239 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Applying GeoSPARQL Schema - Completed
+00:29:17.260 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Find Mode SRS - Started
+00:29:17.265 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Find Mode SRS - Completed
+00:29:17.266 [main] INFO  i.g.g.g.spatial.SpatialIndex - Building Spatial Index - Started
+00:29:17.266 [main] INFO  i.g.g.g.spatial.SpatialIndex - Feature-hasGeometry-Geometry statements found.
+00:29:17.269 [main] INFO  i.g.g.g.spatial.SpatialIndex - Building Spatial Index - Completed
+00:29:17.556 [Thread-5] INFO  i.g.g.g.GeosparqlServer - GeoSPARQL Server: Running - Port: 3030, Dataset: /test, Loopback Only: true,  Allow Update: true

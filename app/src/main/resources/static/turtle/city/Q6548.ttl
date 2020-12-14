@@ -1,9 +1,0 @@
-@prefix ex_city: <http://localhost:8080/city/> .
-@prefix sch:   <https://schema.org/> .
-
-ex_city:Q6548  a        sch:City ;
-        sch:identifier  <http://www.wikidata.org/entity/Q6548> ;
-        sch:lattitude   47.902222222 ;
-        sch:longitude   1.904166666 ;
-        sch:name        "Orléans"@fr ;
-        sch:url         <http://localhost:8080/page/city/Q6548> .

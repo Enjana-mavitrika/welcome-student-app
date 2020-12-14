@@ -1,0 +1,25 @@
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix : <http://blog.stardog.com/geons/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Create geo:Geometry
+:WhiteHouseGeom a geo:Geometry ;
+  geo:asWKT "Point(-77.03637 38.89761)"^^geo:wktLiteral .
+
+# Link it to our entity
+:WhiteHouse a :Location ;
+  rdfs:label "The White House" ;
+  geo:hasGeometry :WhiteHouseGeom .
+
+  # geo:Geometry is still used as the type
+# A big tripping point is that WKT points are expressed
+# as (LONG LAT), with no comma!
+:WashingtonMonGeom a geo:Geometry ;
+  geo:asWKT "Point(-77.03525 38.88956)"^^geo:wktLiteral .
+
+# Link this Geometry to an entity in our graph
+:WashingtonMon a :Location ;
+  rdfs:label "Washington Monument" ;
+  geo:hasGeometry :WashingtonMonGeom .
