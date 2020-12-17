@@ -21,6 +21,7 @@ Application web basé sur la technologie __Web semantique__ pour aider les nouve
 |--------------------------------|:--------------:|
 | Show group of entities in MAP (openstreet map) | DONE |
 | Add content negotiation (humman and machine) | DONE |
+| add structured data to the web pages, using RDFa or JSON-LD | TODO |
 | FILTER bus stop around schools with MAX distance | DONE | 
 | Add meteo for each city | TODO |
 | FILTER city with good weather | TODO |
