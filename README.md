@@ -1,6 +1,6 @@
 # PROJET WELCOME STUDENT APP 2020
 ## Description :
-Application web basé sur la technologie __Web semantique__ pour aider les nouveaux étudiants international à trouver facilement les endroits clé de leurs ville d'accueil. 
+Application web basée sur la technologie __Web semantique__ pour aider les nouveaux étudiants internationaux à trouver facilement les endroits clés de leurs villes d'accueil. 
 ## Authors :
  - Solofo RABONARIJAONA
  - Ibrahima DIALLO
