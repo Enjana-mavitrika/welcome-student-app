@@ -37,6 +37,25 @@
                 sur la carte
             </p>
         </div>
+        <div th:if="${#lists.isEmpty(schools)}" class="uk-text-center">
+            <a th:href="@{{url}/fetchSchoolsOnWikidata(url=${city.url})}" class="uk-button uk-button-danger"><span style="position:relative; top: 10px;" uk-icon="icon: cloud-download; ratio: 1.5"></span><br/>Cliquez ici pour charger les organisations éducative de [[${city.name}]] depuis WIKIDATA
+            </a>
+        </div>
+        <form th:unless="${#lists.isEmpty(schools)}" th:action="@{${city.url}}" method="get" class="uk-grid-small" uk-grid style="margin-top:15px;">
+            <div class="uk-width-1-2 uk-text-secondary uk-text-bold">
+                Afficher uniquement les arrêts qui sont à une distance (en m) maximum donnée autour des organisation éducative :
+            </div>
+            <div class="uk-width-1-6">
+                <input class="uk-input" type="number" name="distance" th:value="*{distance}" placeholder="distance en m">
+            </div>
+            <div class="uk-width-1-1">
+                <button type="submit" class="uk-button uk-button-secondary">
+                    Filtrer
+                </button>
+            </div>
+            
+        </form>
+        <br/>
 
         <div id="maCarte">
 
@@ -49,7 +68,7 @@
         <h1 id ="city" class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">Ville de [[ ${city.name} ]]</h1>
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;" class=".uk-background-muted">
-                <a class="uk-accordion-title" href="#">Afficher détails sur [[ ${city.name} ]]</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher détails sur [[ ${city.name} ]]</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover">
                         <tr>
@@ -84,11 +103,11 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title" href="#">Afficher la liste des organisations éducatives</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher la liste des organisations éducatives</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover uk-table-divider">
                         <tr>
-                            <th>Les organisations éducatives</th>
+                            <th class="uk-text-secondary uk-text-bold">Les organisations éducatives</th>
                             <th>Longitude</th>
                             <th>Latitude</th>
                         </tr>
@@ -111,11 +130,11 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title" href="#">Afficher la liste des arrêts aux alentours des écoles</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher la liste des arrêts aux alentours des écoles</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover uk-table-divider">
                         <tr>
-                            <th>Les arrêts qui se trouvent à une distance max de 500 m d'une organisation éducative</th>
+                            <th class="uk-text-secondary uk-text-bold">Les arrêts qui se trouvent à une distance max de [[${distance}]] m d'une organisation éducative</th>
                             <th>Organisation éducative</th>
                             <th>Distance</th>
                         </tr>
@@ -292,12 +311,12 @@
                 const options = {
                     method : 'POST',
                     headers : {
-                        'Content-type' : 'application-json'
+                        'Content-type' : 'application/json'
                     },
                     body : JSON.stringify(weatherData)
                 }
 
-                await fetch('meteo/Q42168', options)
+                await fetch(city.url + '/meteo', options)
                 .then(res=>res.json())
                 .then(res => console.log(res));
 

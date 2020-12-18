@@ -1,6 +1,7 @@
 package com.example.demotest.service;
 
 import com.example.demotest.modele.City;
+import com.example.demotest.modele.Meteo;
 import com.example.demotest.modele.School;
 import com.example.demotest.modele.Stop;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
@@ -25,9 +26,15 @@ public class RDFProducer {
     public static final String schema = "https://schema.org/";
     public static final String wd = "http://www.wikidata.org/entity/";
     public static final String geo = "http://www.opengis.net/ont/geosparql#";
+    public static final String xsd = "http://www.w3.org/2001/XMLSchema#";
     // SPARQL API
     private final String datasetURL = "http://localhost:3030/test";
     private final String sparqlEndpoint = datasetURL + "/sparql";
+
+    public void sendToTripleStore(Meteo meteo, String cityId) {
+        Model model = this.meteoToRDF(meteo, cityId);
+        this.updateRDF(model);
+    }
 
     public void sendToTripleStore(School school, String cityId) {
         Model model = this.schoolToRDF(school, cityId);
@@ -89,6 +96,25 @@ public class RDFProducer {
         schoolRDF.addProperty(identifier, model.createResource(school.website));
         schoolRDF.addProperty(hasGeometry, schoolGeomRDF);
         
+        return model;
+    }
+
+    private Model meteoToRDF(Meteo meteo, String cityId) {
+        Model model = ModelFactory.createDefaultModel();
+        Property a = model.createProperty(rdf + "type");
+        Property hasMeteo = model.createProperty(BASE_URI + "/property/" + "hasMeteo");
+        Property hasTmin = model.createProperty(BASE_URI + "/property/" + "hasTmin");
+        Property hasTmax = model.createProperty(BASE_URI + "/property/" + "hasTmax");
+        Property isPredicted = model.createProperty(BASE_URI + "/property" + "isredicted");
+        Literal date = model.createTypedLiteral(meteo.date, xsd+"date");
+        Resource city = model.createResource(BASE_URI + CITY_BASE_URI + cityId);
+        String id = BASE_URI + "/class/meteo/" + cityId + meteo.date;
+        Resource meteoRDF = model.createResource(id);
+        meteoRDF.addProperty(hasTmax, Double.toString(meteo.tmax), XSDDatatype.XSDdecimal);
+        meteoRDF.addProperty(hasTmin, Double.toString(meteo.tmin), XSDDatatype.XSDdecimal);
+        meteoRDF.addProperty(isPredicted, date);
+        city.addProperty(hasMeteo, meteoRDF);
+
         return model;
     }
 

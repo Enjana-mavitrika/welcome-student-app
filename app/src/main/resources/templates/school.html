@@ -37,6 +37,26 @@
             <p class="uk-text-large uk-text-center">Explorez quelques endroits clés (écoles, arrêts de transport, etc.) aux alentours de [[ ${school.name} ]]
                 sur la carte</p>
         </div>
+        <form th:action="@{${school.url}}" method="get" class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2 uk-text-secondary uk-text-bold">
+                Afficher uniquement les écoles qui sont à une distance (en m) maximum :
+            </div>
+            <div class="uk-width-1-6">
+                <input class="uk-input" type="number" name="distanceSchool" th:value="*{distanceSchool}" placeholder="distance en m">
+            </div>
+            <div class="uk-width-1-2 uk-text-secondary uk-text-bold">
+                Afficher uniquement les arrêts qui sont à une distance (en m) maximum :
+            </div>
+            <div class="uk-width-1-6">
+                <input class="uk-input" type="number" name="distanceStop" th:value="*{distanceStop}" placeholder="distance en m">
+            </div>
+            <div class="uk-width-1-1">
+                <button type="submit" class="uk-button uk-button-secondary">
+                    Filtrer
+                </button>
+            </div>
+        </form>
+        
         <div id="maCarte">
 
         </div>
@@ -53,7 +73,7 @@
         <h1 id="school" class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">[[ ${school.name} ]]</h1>
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title" href="#">Afficher détails sur [[ ${school.name} ]]</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher détails sur [[ ${school.name} ]]</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover">
                         <tr>
@@ -92,11 +112,11 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title" href="#">Afficher les organisations éducatives aux alentours de [[ ${school.name} ]]</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher les organisations éducatives aux alentours de [[ ${school.name} ]]</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover uk-table-divider">
                         <tr>
-                            <th>Les organisations éducatives à une distance max de 2000 m</th>
+                            <th>Les organisations éducatives à une distance max de [[${distanceSchool}]] m</th>
                             <th>Distance</th>
                         </tr>
                         <tr th:each="school : ${schoolsAround}">
@@ -117,11 +137,11 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title" href="#">Afficher les arrêts qui se trouve aux alentours de [[ ${school.name} ]]</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher les arrêts qui se trouve aux alentours de [[ ${school.name} ]]</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover uk-table-divider">
                         <tr>
-                            <th>Les arrêts qui se trouvent à une distance max de 200 m</th>
+                            <th>Les arrêts qui se trouvent à une distance max de [[${distanceStop}]] m</th>
                             <th>Distance</th>
                         </tr>
                         <tr th:each="stop : ${stopsAround}">
