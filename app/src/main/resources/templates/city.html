@@ -188,6 +188,63 @@
 
             /*]]>*/
 
+            /*************************************** Données météo ***********************************/
+
+            async function getMeteoData () {
+                /*url api Meteo concept*/
+                var url='https://api.meteo-concept.com/api/forecast/daily?token=c5b5532f0185cc4e8fe04f1abf6899961a3ed50f8c850377adaa298310aa6008&latlng='+city.latitude+','+city.longitude
+                var weatherData = {}
+                var prevision = []
+
+                /*Fetch sur l'api pour recupérer les données*/
+                const meteo = await fetch(url)
+                .then(resultat => resultat.json())
+                .then(json => json)
+                
+                /*Filtrage des données de prévision pour recupérer celles qui nous intéresse*/
+                meteo.forecast.forEach((element, index, array) => {
+                    prevision.push({
+                        datetime: element.datetime, 
+                        jour : element.day, 
+                        tmin: element.tmin,
+                        tmax: element.tmax,
+                        probaGel : element.probafrost,
+                        probaBrouillard : element.probafog,
+                        probaVentSup100 : element.probawind100,
+                        probaPluie : element.probarain 
+                    })
+                });
+
+                /* Données filtrées */
+                weatherData = {
+                    city : {
+                        name : meteo.city.name,
+                        latitude : meteo.city.latitude,
+                        longitude : meteo.city.longitude,
+                        updated : meteo.update
+                    },
+                    prevision : prevision 
+                }
+
+                console.log(weatherData)
+
+                /*Post pour envoyer les données au serveur*/
+                const options = {
+                    method : 'POST',
+                    headers : {
+                        'Content-type' : 'application-json'
+                    },
+                    body : JSON.stringify(weatherData)
+                }
+
+                await fetch('meteo/Q42168', options)
+                .then(res=>res.json())
+                .then(res => console.log(res));
+
+            }
+
+            getMeteoData ()
+
         </script>
     </div>   
 </body>
