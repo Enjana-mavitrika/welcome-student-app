@@ -9,6 +9,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.example.demotest.modele.City;
+import com.example.demotest.modele.Meteo;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -22,6 +24,26 @@ public class JsonDataCollector {
     ResourceFileReader fileReader;
     
     private final String jsonDataLocator = "data/json/";
+
+    public List<Meteo> collectCityMeteo(String meteoData) {
+        List<Meteo> meteos = new ArrayList<Meteo>();
+        JSONParser jsonParser = new JSONParser();
+        try {
+            Object obj = jsonParser.parse(meteoData);
+            JSONObject meteoJson = (JSONObject) obj;
+            JSONArray previsions = (JSONArray) meteoJson.get("prevision");
+            for (Object previsionObj : previsions) {
+                JSONObject prevision = (JSONObject) previsionObj;
+                String date = (String) prevision.get("datetime");
+                long tmin = (long) prevision.get("tmin");
+                long tmax = (long) prevision.get("tmax");
+                meteos.add(new Meteo(date, tmin, tmax));
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return meteos;
+    }
 
     public List<City> collectCities() {
         List<City> cities = new ArrayList<City>();

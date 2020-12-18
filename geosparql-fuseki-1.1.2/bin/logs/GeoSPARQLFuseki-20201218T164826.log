@@ -1,0 +1,11 @@
+16:48:26.068 [main] INFO  i.g.galbiston.geosparql_fuseki.Main - Arguments Received: [-rf, test.ttl, -c, -i, -d, test, -t, testTDB, -u]
+16:48:26.110 [main] INFO  i.g.g.g.DatasetOperations - Server Configuration: port=3030, datsetName=test, loopbackOnly=true, updateAllowed=true, inference=true, applyDefaultGeometry=false, validateGeometryLiteral=false, convertGeoPredicates=true, removeGeoPredicates=false, queryRewrite=true, tdbFile=testTDB, fileGraphFormats=[FileGraphFormat{rdfFile=test.ttl, graphName=, rdfFormat=Turtle/pretty}], fileGraphDelimiters=[], indexEnabled=true, indexSizes=[-1, -1, -1], indexExpiries=[5000, 5000, 5000], spatialIndexFile=null, help=false
+16:48:26.149 [main] INFO  i.g.g.g.DatasetOperations - TDB Dataset: testTDB
+16:48:26.550 [main] INFO  i.g.g.g.DatasetOperations - Reading RDF - Started - File: test.ttl, Graph Name: , RDF Format: Turtle/pretty
+16:48:26.704 [main] WARN  org.apache.sis.system - La variable environnementale «?SIS_DATA?» n’est pas définie.
+16:48:26.837 [main] INFO  i.g.g.g.DatasetOperations - Reading RDF - Completed - File: test.ttl, Graph Name: , RDF Format: Turtle/pretty
+16:48:26.838 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Convert Geo Predicates - Started
+16:48:26.875 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Convert Geo Predicates - Completed
+16:48:26.964 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Applying GeoSPARQL Schema - Started
+16:48:27.172 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - GeoSPARQL schema applied to graph: default
+16:48:27.176 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Applying GeoSPARQL Schema - Completed

@@ -1,0 +1,1 @@
+16:46:17.798 [main] INFO  i.g.galbiston.geosparql_fuseki.Main - Arguments Received: [-rf, test.ttl, -c, -i, -d, test, -u, -x, -t, testTDB]
