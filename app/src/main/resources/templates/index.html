@@ -86,7 +86,7 @@
 
         for (ville in villes) {
             var marqueur = L.marker([villes[ville].latitude, villes[ville].longitude]);
-            marqueur.bindPopup("<a href=" + villes[ville].url + ">" + villes[ville].name + "</a>")
+            marqueur.bindPopup("<div classe='uk-button uk-button-default' uk-tooltip='Cliquez sur ce lien pour accéder aux données de la ville'><a href=" + villes[ville].url + ">" + villes[ville].name + "</a></div>")
             /* on ajoute le marqueur au groupe */
             marqueursClusters.addLayer(marqueur)
 

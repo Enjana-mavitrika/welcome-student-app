@@ -12,6 +12,10 @@
             height: 400px;
         }
 
+        #city {
+            margin-top: 3px;
+        }
+
         html {
             background: url(/img/bg3.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
@@ -29,14 +33,20 @@
     <div class="uk-container">
         <div class="uk-alert-primary" uk-alert>
             <a class="uk-alert-close" uk-close></a>
-            <p>Explorez quelques endroits clés (écoles, arrêts de transport, etc.) de la ville de [[ ${city.name} ]]
-                sur la carte</p>
+            <p class="uk-text-large uk-text-center">Explorez quelques endroits clés (écoles, arrêts de transport, etc.) et les prévisions météo en temps réel de la ville de [[ ${city.name} ]]
+                sur la carte
+            </p>
         </div>
 
         <div id="maCarte">
 
         </div>
-        <h1 class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">Ville de [[ ${city.name} ]]</h1>
+        
+        <button style= "margin-top: 3px" class="uk-button uk-button-primary uk-button-small" uk-tooltip="Cliqez ici pour choisir une ville" onclick="window.location.href = 'http://localhost:8080/home'">
+            Choisir une autre ville
+        </button>
+       
+        <h1 id ="city" class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">Ville de [[ ${city.name} ]]</h1>
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;" class=".uk-background-muted">
                 <a class="uk-accordion-title" href="#">Afficher détails sur [[ ${city.name} ]]</a>
@@ -112,7 +122,7 @@
                         <tr th:each="stop : ${stopsAround}">
                             <td>
                                 <span uk-icon="location"></span>
-                                <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                                <span>[[ ${stop.name} ]]</span>
                             </td>
                             <td>[[ ${stop.refSchool} ]]</td>
                             <td>[[ ${#numbers.formatDecimal(stop.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m
@@ -120,6 +130,43 @@
                         </tr>
                         <tr th:if="${#lists.isEmpty(stopsAround)}">
                             <td colspan="3">Aucune information disponible</td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
+
+        <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+            <li style="padding: 20px; margin-bottom: 30px;">
+                <a class="uk-accordion-title" href="#">Affichage des données de prévision météo en temps réel de la ville de [[ ${city.name} ]] </a>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-hover uk-table-divider">
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Date</th>
+                            <th>Température MIN</th>
+                            <th>Température MAX</th>
+                            <th>Probabilité de briuillard</th>
+                            <th>Probabilité de pluie</th>
+                            <th>Probabilité de vent > 100 Km/h </th>
+                        </tr>
+                        <tr >
+                            <td>Jour 0</td>
+                            <td>20/05/16</td>
+                            <td>9</td>
+                            <td>60</td>
+                            <td>50</td>
+                            <td>40</td>
+                            <td>30</td>
+                        </tr>
+                        <tr >
+                            <td>Jour 1</td>
+                            <td>20/09/10</td>
+                            <td>7</td>
+                            <td>65</td>
+                            <td>45</td>
+                            <td>67</td>
+                            <td>40</td>
                         </tr>
                     </table>
                 </div>
@@ -134,32 +181,15 @@
         </script>
 
 
-
-
-
         <script th:inline="javascript">
             /*<![CDATA[*/
             var city = /*[[${city}]]*/ "Test1";
             var schools = /*[[${schools}]]*/ "Test2";
-            var stops = /*[[${stops}]]*/ "Test3";
+            var stopsAround = /*[[${stopsAround}]]*/ "Test3";
 
-            /*Données de test*/
-            /* var schools = {
-                 "Université Jean Monnet" : {"latitude" :45.42672 , "longitude":4.39166},
-                 "emse" : {"latitude" :45.4254 , "longitude": 4.3816},
-                 "Emlyon Business School" : {"latitude" :45.42611111 , "longitude": 4.393888},
-                 "Telecom Saint-Étienne" : {"latitude" :45.4517 , "longitude": 4.38718},
-                 "Institut d'Optique Graduate School" : {"latitude" :45.714444444, "longitude": 2.203333333}
-             }
-             var stops = {
-                 "chateaucreux" : {"latitude" :45.4266 , "longitude":4.3876},
-                 "Bicentenaire" : {"latitude" :45.42675 , "longitude": 4.3998},
-                 "Bellevue" : {"latitude" :45.4275 , "longitude": 4.4322},
-                 "Trefilerie" : {"latitude" :45.32334 , "longitude": 4.235353},
-                 "Anatole France" : {"latitude" :45.714444444, "longitude": 4.3348}
-             }*/
-
-
+            console.log(stopsAround)
+            console.log(schools)
+      
             /* Initialisation de la carte */
             var carte = L.map('maCarte').setView([city.latitude, city.longitude], 13);
             /* pour le reglage du zoom automatique*/
@@ -195,17 +225,23 @@
             marqueursClusters.addLayer(marqueurVille)
 
             /*Ajout des marqueurs des écoles*/
+            //(city.latitude + 2 > schools[school].latitude) && (city.longitude + 2 > schools[school].longitude)
             for (school in schools) {
-                var marqueurSchool = L.marker([schools[school].latitude, schools[school].longitude], { icon: iconSchool });
-                marqueurSchool.bindPopup("<p>" + schools[school].name + "</p>")
-                marqueursClusters.addLayer(marqueurSchool)
+                if(( Math.abs(city.latitude - schools[school].latitude) < 1 && Math.abs(city.longitude  - schools[school].longitude) < 1 )){
+                    var marqueurSchool = L.marker([schools[school].latitude, schools[school].longitude], { icon: iconSchool });
+                    marqueurSchool.bindPopup("<div classe='uk-button uk-button-default' uk-tooltip='Cliquez sur ce lien pour découvrir les écoles et arrêts les plus proches'><a href=" + schools[school].url + ">" + schools[school].name + "</a></div>")
+                    marqueursClusters.addLayer(marqueurSchool)
+                }
+                else{
+                    console.log("nom: "+schools[school].name,",  lat :"+schools[school].latitude,",  long: "+schools[school].longitude)
+                } 
             };
 
             /*Ajout des marqueurs des arrêts de transport*/
-            for (stop in stops) {
-                var marqueurArret = L.marker([stops[stop].longitude, stops[stop].latitude], { icon: iconArret });
-                marqueurArret.bindPopup("<p>" + stops[stop].name + "</p>")
-                marqueursClusters.addLayer(marqueurArret)
+            for (stop in stopsAround) {
+                var marqueurArret = L.marker([stopsAround[stop].longitude, stopsAround[stop].latitude], { icon: iconArret });
+                marqueurArret.bindPopup("<p>" + stopsAround[stop].name + "</p>")
+                marqueursClusters.addLayer(marqueurArret) 
             };
 
             carte.addLayer(marqueursClusters)
@@ -225,10 +261,10 @@
                 .then(resultat => resultat.json())
                 .then(json => json)
                 
-                /*Filtrage des données de prévision pour recupérer celles qui nous intéresse*/
+                /*Filtrage des données de prévision pour recupérer celles qui nous intéressent*/
                 meteo.forecast.forEach((element, index, array) => {
                     prevision.push({
-                        datetime: element.datetime, 
+                       datetime: element.datetime, 
                         jour : element.day, 
                         tmin: element.tmin,
                         tmax: element.tmax,
@@ -267,7 +303,9 @@
 
             }
 
-            getMeteoData ()
+
+
+            //getMeteoData ()
 
         </script>
 

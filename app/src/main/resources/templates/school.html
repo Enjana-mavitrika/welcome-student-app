@@ -12,6 +12,10 @@
             height: 400px;
         }
 
+        #school {
+            margin-top: 3px;
+        }
+
         html {
             background: url(/img/bg3.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
@@ -30,13 +34,23 @@
     <div class="uk-container">
         <div class="uk-alert-primary" uk-alert>
             <a class="uk-alert-close" uk-close></a>
-            <p>Explorez quelques endroits clés (écoles, arrêts de transport, etc.) aux alentours de [[ ${school.name} ]]
+            <p class="uk-text-large uk-text-center">Explorez quelques endroits clés (écoles, arrêts de transport, etc.) aux alentours de [[ ${school.name} ]]
                 sur la carte</p>
         </div>
         <div id="maCarte">
 
         </div>
-        <h1 class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">[[ ${school.name} ]]</h1>
+
+    
+        <button style= "margin-top: 3px" class="uk-button uk-button-primary uk-button-small" onclick="window.location.href = 'http://localhost:8080/home'">
+            Choisir une autre ville 
+        </button>
+        <!--<button class="uk-button uk-button-secondary uk-button-small">
+            Tous les établissements de la ville
+        </button>-->
+        
+
+        <h1 id="school" class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">[[ ${school.name} ]]</h1>
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
                 <a class="uk-accordion-title" href="#">Afficher détails sur [[ ${school.name} ]]</a>
@@ -113,7 +127,7 @@
                         <tr th:each="stop : ${stopsAround}">
                             <td>
                                 <span uk-icon="location"></span>
-                                <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                                <span>[[ ${stop.name} ]]</span>
                             </td>
                             <td>[[ ${#numbers.formatDecimal(stop.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m
                             </td>
@@ -129,6 +143,78 @@
 
         <!-- ********  CONTENUS RDF SOUS FORMAT JSON-LD *************  -->
         <script th:utext="${jsonLD}" type="application/ld+json">
+        </script>
+
+        <!-- Map des écoles -->
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var school = /*[[${school}]]*/ "Test2";
+            var schoolsAround = /*[[${schoolsAround}]]*/ "Test3";
+            var stopsAround = /*[[${stopsAround}]]*/ "Test4";
+
+            console.log(school)
+            console.log(schoolsAround)
+            console.log(stopsAround)
+      
+            /* Initialisation de la carte */
+            var carte = L.map('maCarte').setView([school.latitude, school.longitude], 16);
+            /* pour le reglage du zoom automatique*/
+            var tabMarqueurs = []
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                minZoom: 5,
+                maxZoom: 17
+            }).addTo(carte);
+
+            /* Pour grouper les marqueurs qui sont proches */
+            var marqueursClusters = L.markerClusterGroup();
+
+            /* customization des icones de marqueurs*/
+            var iconSchoolSelected = L.icon({
+                iconUrl: "https://img.icons8.com/color/100/000000/marker--v1.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50],
+                popupAnchor: [0, -50],
+            });
+
+            var iconArret = L.icon({
+                iconUrl: "https://static.thenounproject.com/png/368019-200.png?fbclid=IwAR1rAfuEV_ZHecbrR6_ZqCbcpdeSQ09tb2u6MJTJlhVhHBhwGzm-U57PizU",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50],
+                popupAnchor: [0, -50],
+            });
+          
+            var iconSchool = L.icon({
+                iconUrl: "https://img.icons8.com/wired/64/000000/school.png",
+                iconSize: [50, 50],
+                iconAnchor: [25, 50],
+                popupAnchor: [0, -50],
+            });
+
+            /*Ajout du marqueur sur l'école courant*/
+            var marqueurSchool = L.marker([school.latitude, school.longitude], { icon: iconSchoolSelected });
+            marqueurSchool.bindPopup("<p>" + school.name + "</p>")
+            marqueursClusters.addLayer(marqueurSchool)
+
+            /*Ajout des marqueurs des écoles aux alentours*/
+            for (school in schoolsAround) {
+                var marqueurSchoolAround = L.marker([schoolsAround[school].latitude, schoolsAround[school].longitude], { icon: iconSchool });
+                marqueurSchoolAround.bindPopup("<div classe='uk-button uk-button-default' uk-tooltip='Cliquez sur ce lien pour découvrir les écoles et arrêts les plus proches'><a href=" + schoolsAround[school].url + ">" + schoolsAround[school].name + "</a></div>")
+                marqueursClusters.addLayer(marqueurSchoolAround)
+            };
+
+            /*Ajout des marqueurs des arrêts de transport aux alentours de*/
+            for (stop in stopsAround) {
+                //if((stopsAround[stop].latitude > 44.0 && stopsAround[stop].latitude < 46.0) && (stopsAround[stop].longitude < 5.0 &&  stopsAround[stop].longitude > 3.0)){
+                var marqueurArretAround = L.marker([stopsAround[stop].longitude, stopsAround[stop].latitude], { icon: iconArret });
+                marqueurArretAround.bindPopup("<p>" + stopsAround[stop].name + "</p>")
+                marqueursClusters.addLayer(marqueurArretAround)   
+                //}
+            };
+
+            carte.addLayer(marqueursClusters)
+
         </script>
 
 
