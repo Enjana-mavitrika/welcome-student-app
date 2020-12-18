@@ -33,42 +33,53 @@
     <div class="uk-container">
         <div class="uk-alert-primary" uk-alert>
             <a class="uk-alert-close" uk-close></a>
-            <p class="uk-text-large uk-text-center">Explorez quelques endroits clés (écoles, arrêts de transport, etc.) et les prévisions météo en temps réel de la ville de [[ ${city.name} ]]
+            <p class="uk-text-large uk-text-center">Explorez quelques endroits clés (écoles, arrêts de transport, etc.)
+                et les prévisions météo en temps réel de la ville de [[ ${city.name} ]]
                 sur la carte
             </p>
         </div>
         <div th:if="${#lists.isEmpty(schools)}" class="uk-text-center">
-            <a th:href="@{{url}/fetchSchoolsOnWikidata(url=${city.url})}" class="uk-button uk-button-danger"><span style="position:relative; top: 10px;" uk-icon="icon: cloud-download; ratio: 1.5"></span><br/>Cliquez ici pour charger les organisations éducative de [[${city.name}]] depuis WIKIDATA
+            <a th:href="@{{url}/fetchSchoolsOnWikidata(url=${city.url})}" class="uk-button uk-button-danger"><span
+                    style="position:relative; top: 10px;"
+                    uk-icon="icon: cloud-download; ratio: 1.5"></span><br />Cliquez ici pour charger les organisations
+                éducative de [[${city.name}]] depuis WIKIDATA
             </a>
         </div>
-        <form th:unless="${#lists.isEmpty(schools)}" th:action="@{${city.url}}" method="get" class="uk-grid-small" uk-grid style="margin-top:15px;">
+        <form th:unless="${#lists.isEmpty(schools)}" th:action="@{${city.url}}" method="get" class="uk-grid-small"
+            uk-grid style="margin-top:15px;">
             <div class="uk-width-1-2 uk-text-secondary uk-text-bold">
-                Afficher uniquement les arrêts qui sont à une distance (en m) maximum donnée autour des organisation éducative :
+                Afficher uniquement les arrêts qui sont à une distance (en m) maximum donnée autour des organisation
+                éducative :
             </div>
             <div class="uk-width-1-6">
-                <input class="uk-input" type="number" name="distance" th:value="*{distance}" placeholder="distance en m">
+                <input class="uk-input" type="number" name="distance" th:value="*{distance}"
+                    placeholder="distance en m">
             </div>
             <div class="uk-width-1-1">
                 <button type="submit" class="uk-button uk-button-secondary">
                     Filtrer
                 </button>
             </div>
-            
+
         </form>
-        <br/>
+        <br />
 
         <div id="maCarte">
 
         </div>
-        
-        <button style= "margin-top: 3px" class="uk-button uk-button-primary uk-button-small" uk-tooltip="Cliqez ici pour choisir une ville" onclick="window.location.href = 'http://localhost:8080/home'">
+
+        <button style="margin-top: 3px" class="uk-button uk-button-primary uk-button-small"
+            uk-tooltip="Cliqez ici pour choisir une ville"
+            onclick="window.location.href = 'http://localhost:8080/home'">
             Choisir une autre ville
         </button>
-       
-        <h1 id ="city" class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">Ville de [[ ${city.name} ]]</h1>
+
+        <h1 id="city" class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">Ville de [[ ${city.name} ]]
+        </h1>
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;" class=".uk-background-muted">
-                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher détails sur [[ ${city.name} ]]</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher détails sur [[
+                    ${city.name} ]]</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover">
                         <tr>
@@ -103,7 +114,8 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher la liste des organisations éducatives</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher la liste des
+                    organisations éducatives</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover uk-table-divider">
                         <tr>
@@ -130,11 +142,13 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher la liste des arrêts aux alentours des écoles</a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Afficher la liste des arrêts aux
+                    alentours des écoles</a>
                 <div class="uk-accordion-content">
                     <table class="uk-table uk-table-hover uk-table-divider">
                         <tr>
-                            <th class="uk-text-secondary uk-text-bold">Les arrêts qui se trouvent à une distance max de [[${distance}]] m d'une organisation éducative</th>
+                            <th class="uk-text-secondary uk-text-bold">Les arrêts qui se trouvent à une distance max de
+                                [[${distance}]] m d'une organisation éducative</th>
                             <th>Organisation éducative</th>
                             <th>Distance</th>
                         </tr>
@@ -157,7 +171,8 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Affichage des données de prévision météo en temps réel de la ville de [[ ${city.name} ]] </a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Affichage des données de prévision
+                    météo en temps réel de la ville de [[ ${city.name} ]] </a>
                 <div class="uk-accordion-content">
                     <table id="table" class="uk-table uk-table-hover uk-table-divider">
                         <tr>
@@ -165,18 +180,6 @@
                             <th>Date</th>
                             <th>Température MIN</th>
                             <th>Température MAX</th>
-                        </tr>
-                        <tr >
-                            <td>Jour 0</td>
-                            <td>20/05/16</td>
-                            <td>9</td>
-                            <td>60</td>
-                        </tr>
-                        <tr >
-                            <td>Jour 1</td>
-                            <td>20/09/10</td>
-                            <td>7</td>
-                            <td>65</td>
                         </tr>
                     </table>
                 </div>
@@ -199,7 +202,7 @@
 
             console.log(stopsAround)
             console.log(schools)
-      
+
             /* Initialisation de la carte */
             var carte = L.map('maCarte').setView([city.latitude, city.longitude], 13);
             /* pour le reglage du zoom automatique*/
@@ -237,21 +240,21 @@
             /*Ajout des marqueurs des écoles*/
             //(city.latitude + 2 > schools[school].latitude) && (city.longitude + 2 > schools[school].longitude)
             for (school in schools) {
-                if(( Math.abs(city.latitude - schools[school].latitude) < 1 && Math.abs(city.longitude  - schools[school].longitude) < 1 )){
+                if ((Math.abs(city.latitude - schools[school].latitude) < 1 && Math.abs(city.longitude - schools[school].longitude) < 1)) {
                     var marqueurSchool = L.marker([schools[school].latitude, schools[school].longitude], { icon: iconSchool });
                     marqueurSchool.bindPopup("<div classe='uk-button uk-button-default' uk-tooltip='Cliquez sur ce lien pour découvrir les écoles et arrêts les plus proches'><a href=" + schools[school].url + ">" + schools[school].name + "</a></div>")
                     marqueursClusters.addLayer(marqueurSchool)
                 }
-                else{
-                   // console.log("nom: "+schools[school].name,",  lat :"+schools[school].latitude,",  long: "+schools[school].longitude)
-                } 
+                else {
+                    // console.log("nom: "+schools[school].name,",  lat :"+schools[school].latitude,",  long: "+schools[school].longitude)
+                }
             };
 
             /*Ajout des marqueurs des arrêts de transport*/
             for (stop in stopsAround) {
                 var marqueurArret = L.marker([stopsAround[stop].longitude, stopsAround[stop].latitude], { icon: iconArret });
                 marqueurArret.bindPopup("<p>" + stopsAround[stop].name + "</p>")
-                marqueursClusters.addLayer(marqueurArret) 
+                marqueursClusters.addLayer(marqueurArret)
             };
 
             carte.addLayer(marqueursClusters)
@@ -260,67 +263,91 @@
 
             /*************************************** Données météo ***********************************/
 
-            async function getMeteoData () {
+            async function getMeteoData() {
                 /*url api Meteo concept*/
-                var url='https://api.meteo-concept.com/api/forecast/daily?token=c5b5532f0185cc4e8fe04f1abf6899961a3ed50f8c850377adaa298310aa6008&latlng='+city.latitude+','+city.longitude
+                var url = 'https://api.meteo-concept.com/api/forecast/daily?token=c5b5532f0185cc4e8fe04f1abf6899961a3ed50f8c850377adaa298310aa6008&latlng=' + city.latitude + ',' + city.longitude
                 var weatherData = {}
                 var prevision = []
 
                 /*Fetch sur l'api pour recupérer les données*/
                 const meteo = await fetch(url)
-                .then(resultat => resultat.json())
-                .then(json => json)
-                
+                    .then(resultat => resultat.json())
+                    .then(json => json)
+
                 /*Filtrage des données de prévision pour recupérer celles qui nous intéressent*/
                 meteo.forecast.forEach((element, index, array) => {
                     prevision.push({
-                       datetime: element.datetime, 
-                        jour : element.day, 
+                        datetime: element.datetime,
+                        jour: element.day,
                         tmin: element.tmin,
                         tmax: element.tmax,
-                        probaGel : element.probafrost,
-                        probaBrouillard : element.probafog,
-                        probaVentSup100 : element.probawind100,
-                        probaPluie : element.probarain 
+                        probaGel: element.probafrost,
+                        probaBrouillard: element.probafog,
+                        probaVentSup100: element.probawind100,
+                        probaPluie: element.probarain
                     })
                 });
 
                 /* Données filtrées */
                 weatherData = {
-                    city : {
-                        name : meteo.city.name,
-                        latitude : meteo.city.latitude,
-                        longitude : meteo.city.longitude,
-                        updated : meteo.update
+                    city: {
+                        name: meteo.city.name,
+                        latitude: meteo.city.latitude,
+                        longitude: meteo.city.longitude,
+                        updated: meteo.update
                     },
-                    prevision : prevision 
+                    prevision: prevision
                 }
 
-               // console.log(weatherData)
+                // console.log(weatherData)
 
                 /*Post pour envoyer les données au serveur*/
                 const options = {
-                    method : 'POST',
-                    headers : {
-                        'Content-type' : 'application/json'
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
                     },
-                    body : JSON.stringify(weatherData)
+                    body: JSON.stringify(weatherData)
                 }
 
                 await fetch(city.url + '/meteo', options)
-                .then(res=>res.json())
-                .then(res => console.log(res));
+                    .then(res => {
+                        res.json().then(data => {
+                            //console.log(data)
+                            const table = document.getElementById("table");
+                            let conteur = 1;
+                            data.forEach((meteo) => {
+                                const tr = document.createElement("tr");
+                                const tdjour = document.createElement("td");
+                                tdjour.textContent = "Jour " + conteur;
+                                const tdDate = document.createElement("td");
+                                tdDate.textContent = meteo.date;
+                                const tdTmin = document.createElement("td");
+                                tdTmin.textContent = meteo.tmin;
+                                const tdTmax = document.createElement("td");
+                                tdTmax.textContent = meteo.tmax;
+                                tr.appendChild(tdjour);
+                                tr.appendChild(tdDate);
+                                tr.appendChild(tdTmin);
+                                tr.appendChild(tdTmax);
+                                table.appendChild(tr);
+                                conteur++;
+                            });
+                        })
+
+                    })
+                    .then(data => console.log(data));
 
             }
 
 
 
-            //getMeteoData ()
+            getMeteoData()
 
         </script>
 
         <!-- INCLUDE SHARED SCRIPTS  -->
-    <script th:replace="scripts :: script"></script>
+        <script th:replace="scripts :: script"></script>
 
     </div>
 </body>

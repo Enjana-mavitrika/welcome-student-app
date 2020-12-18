@@ -105,11 +105,12 @@ public class RDFProducer {
         Property hasMeteo = model.createProperty(BASE_URI + "/property/" + "hasMeteo");
         Property hasTmin = model.createProperty(BASE_URI + "/property/" + "hasTmin");
         Property hasTmax = model.createProperty(BASE_URI + "/property/" + "hasTmax");
-        Property isPredicted = model.createProperty(BASE_URI + "/property" + "isredicted");
+        Property isPredicted = model.createProperty(BASE_URI + "/property" + "isPredictedAt");
         Literal date = model.createTypedLiteral(meteo.date, xsd+"date");
         Resource city = model.createResource(BASE_URI + CITY_BASE_URI + cityId);
         String id = BASE_URI + "/class/meteo/" + cityId + meteo.date;
         Resource meteoRDF = model.createResource(id);
+        meteoRDF.addProperty(a, BASE_URI + "/class/Meteo");
         meteoRDF.addProperty(hasTmax, Double.toString(meteo.tmax), XSDDatatype.XSDdecimal);
         meteoRDF.addProperty(hasTmin, Double.toString(meteo.tmin), XSDDatatype.XSDdecimal);
         meteoRDF.addProperty(isPredicted, date);
