@@ -157,35 +157,26 @@
 
         <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
             <li style="padding: 20px; margin-bottom: 30px;">
-                <a class="uk-accordion-title" href="#">Affichage des données de prévision météo en temps réel de la ville de [[ ${city.name} ]] </a>
+                <a class="uk-accordion-title uk-text-secondary uk-text-bold" href="#">Affichage des données de prévision météo en temps réel de la ville de [[ ${city.name} ]] </a>
                 <div class="uk-accordion-content">
-                    <table class="uk-table uk-table-hover uk-table-divider">
+                    <table id="table" class="uk-table uk-table-hover uk-table-divider">
                         <tr>
                             <th>&nbsp;</th>
                             <th>Date</th>
                             <th>Température MIN</th>
                             <th>Température MAX</th>
-                            <th>Probabilité de briuillard</th>
-                            <th>Probabilité de pluie</th>
-                            <th>Probabilité de vent > 100 Km/h </th>
                         </tr>
                         <tr >
                             <td>Jour 0</td>
                             <td>20/05/16</td>
                             <td>9</td>
                             <td>60</td>
-                            <td>50</td>
-                            <td>40</td>
-                            <td>30</td>
                         </tr>
                         <tr >
                             <td>Jour 1</td>
                             <td>20/09/10</td>
                             <td>7</td>
                             <td>65</td>
-                            <td>45</td>
-                            <td>67</td>
-                            <td>40</td>
                         </tr>
                     </table>
                 </div>
@@ -252,7 +243,7 @@
                     marqueursClusters.addLayer(marqueurSchool)
                 }
                 else{
-                    console.log("nom: "+schools[school].name,",  lat :"+schools[school].latitude,",  long: "+schools[school].longitude)
+                   // console.log("nom: "+schools[school].name,",  lat :"+schools[school].latitude,",  long: "+schools[school].longitude)
                 } 
             };
 
@@ -305,7 +296,7 @@
                     prevision : prevision 
                 }
 
-                console.log(weatherData)
+               // console.log(weatherData)
 
                 /*Post pour envoyer les données au serveur*/
                 const options = {
