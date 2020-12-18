@@ -31,7 +31,6 @@ public class WikidataCollector {
         QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
         try {
             ResultSet results = qexec.execSelect();
-            System.out.println("row number : " + results.getRowNumber());
             while(results.hasNext()) {
                 QuerySolution qs = results.next();
                 Resource item = qs.getResource("item");
@@ -39,7 +38,6 @@ public class WikidataCollector {
                 Resource website = qs.getResource("website");
                 Literal geo = qs.getLiteral("geo");
                 schools.add(new School(label.getString(), geo.getString(), website.getURI(), item.getURI()));
-                System.out.println("item : " + item + " " + label +  " " + website + " " + geo);
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

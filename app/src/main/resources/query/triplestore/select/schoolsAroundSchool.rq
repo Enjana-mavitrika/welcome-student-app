@@ -1,0 +1,27 @@
+PREFIX schema: <https://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix geo: <http://www.opengis.net/ont/geosparql#>
+prefix geof: <http://www.opengis.net/def/function/geosparql/>
+prefix spatialF: <http://jena.apache.org/function/spatial#>
+prefix units: <http://www.opengis.net/def/uom/OGC/1.0/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+prefix unit: <http://qudt.org/vocab/unit#>
+prefix spatial: <http://jena.apache.org/spatial#>
+
+SELECT DISTINCT ?school ?name ?latitude ?longitude ?url ?distance  WHERE {
+  ?school rdf:type schema:School;
+        schema:latitude ?latitude;
+        schema:longitude ?longitude;
+        schema:name ?name;
+        schema:url ?url;
+        geo:hasGeometry ?schoolGeom.
+    ?schoolGeom geo:asWKT ?schoolGeomLit.
+    <school-uri> rdf:type schema:School;
+        geo:hasGeometry ?schoolGeom2.
+    ?schoolGeom2 geo:asWKT ?schoolGeomLit2
+    BIND (spatialF:distance(?schoolGeomLit, ?schoolGeomLit2, units:meter) as ?distance)
+   FILTER(?distance <= <max-dist> && ?distance >= 1)
+}
+GROUP BY ?school ?name ?latitude ?longitude ?url ?distance  ORDER BY ASC(MIN(?distance))

@@ -1,0 +1,18 @@
+15:22:51.223 [main] INFO  i.g.galbiston.geosparql_fuseki.Main - Arguments Received: [-rf, test.ttl, -c, -i, -d, test, -u]
+15:22:51.286 [main] INFO  i.g.g.g.DatasetOperations - Server Configuration: port=3030, datsetName=test, loopbackOnly=true, updateAllowed=true, inference=true, applyDefaultGeometry=false, validateGeometryLiteral=false, convertGeoPredicates=true, removeGeoPredicates=false, queryRewrite=true, tdbFile=null, fileGraphFormats=[FileGraphFormat{rdfFile=test.ttl, graphName=, rdfFormat=Turtle/pretty}], fileGraphDelimiters=[], indexEnabled=true, indexSizes=[-1, -1, -1], indexExpiries=[5000, 5000, 5000], spatialIndexFile=null, help=false
+15:22:51.354 [main] INFO  i.g.g.g.DatasetOperations - In-Memory Dataset
+15:22:52.218 [main] INFO  i.g.g.g.DatasetOperations - Reading RDF - Started - File: test.ttl, Graph Name: , RDF Format: Turtle/pretty
+15:22:52.574 [main] WARN  org.apache.sis.system - La variable environnementale «?SIS_DATA?» n’est pas définie.
+15:22:52.786 [main] INFO  i.g.g.g.DatasetOperations - Reading RDF - Completed - File: test.ttl, Graph Name: , RDF Format: Turtle/pretty
+15:22:52.790 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Convert Geo Predicates - Started
+15:22:52.843 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Convert Geo Predicates - Completed
+15:22:52.966 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Applying GeoSPARQL Schema - Started
+15:22:53.072 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - GeoSPARQL schema applied to graph: default
+15:22:53.072 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Applying GeoSPARQL Schema - Completed
+15:22:53.096 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Find Mode SRS - Started
+15:22:53.102 [main] INFO  i.g.g.g.c.GeoSPARQLOperations - Find Mode SRS - Completed
+15:22:53.102 [main] INFO  i.g.g.g.spatial.SpatialIndex - Building Spatial Index - Started
+15:22:53.102 [main] INFO  i.g.g.g.spatial.SpatialIndex - Feature-hasGeometry-Geometry statements found.
+15:22:53.108 [main] INFO  i.g.g.g.spatial.SpatialIndex - Building Spatial Index - Completed
+15:22:53.471 [Thread-5] INFO  i.g.g.g.GeosparqlServer - GeoSPARQL Server: Running - Port: 3030, Dataset: /test, Loopback Only: true,  Allow Update: true
+19:29:28.143 [qtp268490061-32] ERROR org.apache.jena.fuseki.Fuseki - [line: 1, col: 44] Bad character in IRI (space): <http://www.example.com/StopPoint:OCETrain[space]...>

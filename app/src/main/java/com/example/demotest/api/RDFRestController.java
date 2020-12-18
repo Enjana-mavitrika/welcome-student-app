@@ -47,6 +47,21 @@ public class RDFRestController {
         return stopsAround;
     }
 
+    @GetMapping("/api/v1/school/{idSchool}/stops")
+    public List<Stop> getStopsBySchool(@PathVariable String idSchool) {
+        // fetch stops around
+        List<Stop> stopsAround = rdfCounsumer.fetchStopsAroundSchool(idSchool, 200);
+
+        return stopsAround;
+    }
+
+    @GetMapping("/api/v1/school/{idSchool}/schools")
+    public List<School> getSchoolsBySchool(@PathVariable String idSchool) {
+        // fetch schools around
+        List<School> schoolsAround = rdfCounsumer.fetchSchoolAroundSchool(idSchool, 2000) ;
+
+        return schoolsAround;
+    }
 
 
 }

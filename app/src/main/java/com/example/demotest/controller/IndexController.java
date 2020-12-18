@@ -38,7 +38,12 @@ public class IndexController {
     JsonDataCollector jsonDataCollector;
 
     @GetMapping("/")
-    public String indexAction(Model model) {
+    public String indexAction() {
+        return "loader";
+    }
+
+    @GetMapping("/home")
+    public String homeAction(Model model) {
         // load cities from json file
         List<City> cities = jsonDataCollector.collectCities();
         // populate triplestore with loaded cities
@@ -68,10 +73,12 @@ public class IndexController {
         }
         // fetch city
         City city = rdfCounsumer.fetchCity(id);
+        // describe city as JSON-LD
+        String jsonLd = rdfCounsumer.describeCity(id);
         // fetch schools in the city
         schools = rdfCounsumer.fetchSchools(city.qid);
         // fetch stops with distance less than 200m of at least one school in the city 
-        List<Stop> stopsAround = rdfCounsumer.fetchStopsAroundSchool(city.qid, 200);
+        List<Stop> stopsAround = rdfCounsumer.fetchStopsByCityAroundSchool(city.qid, 200);
         // fetch stops in the city
         List<Stop> stops = rdfCounsumer.fetchStops(city.qid);
         // send data to model view
@@ -79,6 +86,7 @@ public class IndexController {
         model.addAttribute("schools", schools);
         model.addAttribute("stops", stops);
         model.addAttribute("stopsAround", stopsAround);
+        model.addAttribute("jsonLD", jsonLd);
 
         return "city";
     }
@@ -86,7 +94,6 @@ public class IndexController {
     @GetMapping("/city/{id}")
     public Object cityTurtle(@RequestHeader(value = "Content-Type", required = false) String contentType,
             @PathVariable String id, HttpServletResponse response) {
-        System.out.println("Content-Type = " + contentType);
         if (contentType != null && contentType.equals("text/turtle")) {
             try {
                 rdfCounsumer.describeCity(id, response.getOutputStream());
@@ -100,6 +107,43 @@ public class IndexController {
         } else {
             return "redirect:/page/city/" + id;
         }
+    }
+
+    @GetMapping("/school/{id}")
+    public Object schoolTurtle(@RequestHeader(value = "Content-Type", required = false) String contentType,
+            @PathVariable String id, HttpServletResponse response) {
+        if (contentType != null && contentType.equals("text/turtle")) {
+            try {
+                rdfCounsumer.describeSchool(id, response.getOutputStream());
+                response.setContentType("text/turtle");
+                response.setHeader("Content-Disposition", "attachment; filename=\"" + id + ".ttl\"");
+                response.flushBuffer();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            return null;
+        } else {
+            return "redirect:/page/school/" + id;
+        }
+    }
+
+    @GetMapping("/page/school/{id}")
+    public String schoolAction(Model model, @PathVariable String id) {
+        // fetch school
+        School school = rdfCounsumer.fetchSchool(id);
+        // describe school as JSON-LD
+        String jsonLd = rdfCounsumer.describeSchool(id);
+        // fetch stops around
+        List<Stop> stopsAround = rdfCounsumer.fetchStopsAroundSchool(school.qid, 200);
+        // fetch schools around
+        List<School> schoolsAround = rdfCounsumer.fetchSchoolAroundSchool(school.qid, 2000) ;
+        // send data to model view
+        model.addAttribute("school", school);
+        model.addAttribute("schoolsAround", schoolsAround);
+        model.addAttribute("stopsAround", stopsAround);
+        model.addAttribute("jsonLD", jsonLd);
+
+        return "school";
     }
 
 }

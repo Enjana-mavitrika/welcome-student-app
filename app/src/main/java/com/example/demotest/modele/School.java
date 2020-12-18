@@ -11,6 +11,7 @@ public class School {
     public String url;
     public String website;
     public String geo;
+    public double distanceMinFromSchool;
 
     public School() {
 
@@ -33,8 +34,13 @@ public class School {
         this.geo = "Point(" + latitude + " " + longitude + ")";
         this.website = website;
     }
+    
+    public School(String qid, String name, double longitude, double lattitude, String url, double distanceFromSchool) {
+        this(qid, name, lattitude, longitude, url, "");
+        this.distanceMinFromSchool = distanceFromSchool;
+    }
 
-    private String extractQid(String entityUri) {
+	private String extractQid(String entityUri) {
         return "Q" + entityUri.split("Q")[1];
     }
 

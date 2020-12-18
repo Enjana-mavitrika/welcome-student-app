@@ -8,110 +8,134 @@
     <link th:replace="links :: link" />
 
     <style>
-        #maCarte{
+        #maCarte {
             height: 400px;
+        }
+
+        html {
+            background: url(/img/bg3.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
 
     <!-- INCLUDE SHARED SCRIPTS  -->
-    <script th:replace="scripts :: script"></script>
+    <script th:replace="scriptsmap :: script"></script>
 </head>
 
 <body>
     <div class="uk-container">
-        <h1>Ville de [[ ${city.name} ]]</h1>
-            <table class="uk-table uk-table-hover">
-                <tr>
-                    <th>Nom</th>
-                    <td>[[ ${city.name} ]]</td>
-                </tr>
-                <tr>
-                    <th>Identifiant</th>
-                    <td>[[ ${city.qid} ]]</td>
-                </tr>
-                <tr>
-                    <th>Latitude</th>
-                    <td>[[ ${city.latitude} ]]</td>
-                </tr>
-                <tr>
-                    <th>Longitude</th>
-                    <td>[[ ${city.longitude} ]]</td>
-                </tr>
-                <tr>
-                    <th>Page web</th>
-                    <td>[[ ${city.url} ]]</td>
-                </tr>
-            </table>
-        
-            <div class="uk-alert-primary" uk-alert>
-                <a class="uk-alert-close" uk-close></a>
-                <p>Consultez quelques endroits clés (écoles, arrêts de transport, etc.) de la ville de [[ ${city.name} ]] sur la carte</p>
-            </div>
+        <div class="uk-alert-primary" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p>Explorez quelques endroits clés (écoles, arrêts de transport, etc.) de la ville de [[ ${city.name} ]]
+                sur la carte</p>
+        </div>
 
-            <div id="maCarte">
-               
-            </div>
-            <p><button class="uk-button uk-button-primary uk-align-right" th:data-uri="${city.qid}"
-                id="machine-simulator"><span uk-icon="icon: download; ratio: 1.5"></span><br />Simulate content
-                negotiation to get .ttl</button>
-            </p>
+        <div id="maCarte">
 
-        <table class="uk-table uk-table-striped">
-            <tr>
-                <th>Les organisations éducatives à [[ ${city.name} ]]</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
-            </tr>
-            <tr th:each="school : ${schools}">
-                <td>
-                    <span uk-icon="location"></span>
-                    <a th:href="@{${school.url}}">[[ ${school.name} ]]</a>
-                </td>
-                <td>[[ ${school.longitude} ]]</td>
-                <td>[[ ${school.latitude} ]]</td>
-            </tr>
-            <tr th:if="${#lists.isEmpty(schools)}">
-                <td colspan="3">Aucune information disponible</td>
-            </tr>
-        </table>
+        </div>
+        <h1 class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">Ville de [[ ${city.name} ]]</h1>
+        <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+            <li style="padding: 20px; margin-bottom: 30px;" class=".uk-background-muted">
+                <a class="uk-accordion-title" href="#">Afficher détails sur [[ ${city.name} ]]</a>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-hover">
+                        <tr>
+                            <th>Nom</th>
+                            <td>[[ ${city.name} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Identifiant</th>
+                            <td>[[ ${city.qid} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Latitude</th>
+                            <td>[[ ${city.latitude} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Longitude</th>
+                            <td>[[ ${city.longitude} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Page web</th>
+                            <td>[[ ${city.url} ]]</td>
+                        </tr>
+                    </table>
+                    <p><button class="uk-button uk-button-primary uk-align-right" th:data-uri="${city.qid}"
+                            id="machine-simulator"><span uk-icon="icon: download; ratio: 1.5"></span><br />Simulate
+                            content
+                            negotiation to get .ttl</button>
+                    </p>
+                </div>
+            </li>
+        </ul>
 
-        <table class="uk-table uk-table-striped">
-            <tr>
-                <th>Les arrêts qui se trouvent à une distance max de 500 m d'une organisation éducative</th>
-                <th>Organisation éducative</th>
-                <th>Distance</th>
-            </tr>
-            <tr th:each="stop : ${stopsAround}">
-                <td>
-                    <span uk-icon="location"></span>
-                    <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
-                </td>
-                <td>[[ ${stop.refSchool} ]]</td>
-                <td>[[ ${#numbers.formatDecimal(stop.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m</td>
-            </tr>
-            <tr th:if="${#lists.isEmpty(stopsAround)}">
-                <td colspan="3">Aucune information disponible</td>
-            </tr>
-        </table>
+        <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+            <li style="padding: 20px; margin-bottom: 30px;">
+                <a class="uk-accordion-title" href="#">Afficher la liste des organisations éducatives</a>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-hover uk-table-divider">
+                        <tr>
+                            <th>Les organisations éducatives</th>
+                            <th>Longitude</th>
+                            <th>Latitude</th>
+                        </tr>
+                        <tr th:each="school : ${schools}">
+                            <td>
+                                <span uk-icon="location"></span>
+                                <a th:href="@{${school.url}}">[[ ${school.name} ]]</a>
+                            </td>
+                            <td>[[ ${school.longitude} ]]</td>
+                            <td>[[ ${school.latitude} ]]</td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(schools)}">
+                            <td colspan="3">Aucune information disponible</td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
 
-        <table class="uk-table uk-table-striped">
-            <tr>
-                <th>Les arrêts à [[ ${city.name} ]]</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
-            </tr>
-            <tr th:each="stop : ${stops}">
-                <td>
-                    <span uk-icon="location"></span>
-                    <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
-                </td>
-                <td>[[ ${stop.longitude} ]]</td>
-                <td>[[ ${stop.latitude} ]]</td>
-            </tr>
-            <tr th:if="${#lists.isEmpty(stops)}">
-                <td colspan="3">Aucune information disponible</td>
-            </tr>
-        </table>
+
+        <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+            <li style="padding: 20px; margin-bottom: 30px;">
+                <a class="uk-accordion-title" href="#">Afficher la liste des arrêts aux alentours des écoles</a>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-hover uk-table-divider">
+                        <tr>
+                            <th>Les arrêts qui se trouvent à une distance max de 500 m d'une organisation éducative</th>
+                            <th>Organisation éducative</th>
+                            <th>Distance</th>
+                        </tr>
+                        <tr th:each="stop : ${stopsAround}">
+                            <td>
+                                <span uk-icon="location"></span>
+                                <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                            </td>
+                            <td>[[ ${stop.refSchool} ]]</td>
+                            <td>[[ ${#numbers.formatDecimal(stop.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(stopsAround)}">
+                            <td colspan="3">Aucune information disponible</td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
+
+
+
+
+        <!-- ********  CONTENUS RDF SOUS FORMAT JSON-LD *************  -->
+        <script th:utext="#{jsonLD}" type="application/ld+json">
+        </script>
+
+
+
+
 
         <script th:inline="javascript">
             /*<![CDATA[*/
@@ -120,22 +144,22 @@
             var stops = /*[[${stops}]]*/ "Test3";
 
             /*Données de test*/
-           /* var schools = {
-                "Université Jean Monnet" : {"latitude" :45.42672 , "longitude":4.39166},
-                "emse" : {"latitude" :45.4254 , "longitude": 4.3816},
-                "Emlyon Business School" : {"latitude" :45.42611111 , "longitude": 4.393888},
-                "Telecom Saint-Étienne" : {"latitude" :45.4517 , "longitude": 4.38718},
-                "Institut d'Optique Graduate School" : {"latitude" :45.714444444, "longitude": 2.203333333}
-            }
-            var stops = {
-                "chateaucreux" : {"latitude" :45.4266 , "longitude":4.3876},
-                "Bicentenaire" : {"latitude" :45.42675 , "longitude": 4.3998},
-                "Bellevue" : {"latitude" :45.4275 , "longitude": 4.4322},
-                "Trefilerie" : {"latitude" :45.32334 , "longitude": 4.235353},
-                "Anatole France" : {"latitude" :45.714444444, "longitude": 4.3348}
-            }*/
+            /* var schools = {
+                 "Université Jean Monnet" : {"latitude" :45.42672 , "longitude":4.39166},
+                 "emse" : {"latitude" :45.4254 , "longitude": 4.3816},
+                 "Emlyon Business School" : {"latitude" :45.42611111 , "longitude": 4.393888},
+                 "Telecom Saint-Étienne" : {"latitude" :45.4517 , "longitude": 4.38718},
+                 "Institut d'Optique Graduate School" : {"latitude" :45.714444444, "longitude": 2.203333333}
+             }
+             var stops = {
+                 "chateaucreux" : {"latitude" :45.4266 , "longitude":4.3876},
+                 "Bicentenaire" : {"latitude" :45.42675 , "longitude": 4.3998},
+                 "Bellevue" : {"latitude" :45.4275 , "longitude": 4.4322},
+                 "Trefilerie" : {"latitude" :45.32334 , "longitude": 4.235353},
+                 "Anatole France" : {"latitude" :45.714444444, "longitude": 4.3348}
+             }*/
 
-           
+
             /* Initialisation de la carte */
             var carte = L.map('maCarte').setView([city.latitude, city.longitude], 13);
             /* pour le reglage du zoom automatique*/
@@ -149,7 +173,7 @@
 
             /* Pour grouper les marqueurs qui sont proches */
             var marqueursClusters = L.markerClusterGroup();
-           
+
             /* customization des icones de marqueurs*/
             var iconArret = L.icon({
                 iconUrl: "https://static.thenounproject.com/png/368019-200.png?fbclid=IwAR1rAfuEV_ZHecbrR6_ZqCbcpdeSQ09tb2u6MJTJlhVhHBhwGzm-U57PizU",
@@ -157,31 +181,31 @@
                 iconAnchor: [25, 50],
                 popupAnchor: [0, -50],
             });
-            
+
             var iconSchool = L.icon({
                 iconUrl: "https://img.icons8.com/wired/64/000000/school.png",
                 iconSize: [50, 50],
                 iconAnchor: [25, 50],
                 popupAnchor: [0, -50],
             });
-            
+
             /*Ajout du marqueur sur la ville courant*/
             var marqueurVille = L.marker([city.latitude, city.longitude]);
-            marqueurVille.bindPopup("<p>"+city.name+"</p>")
+            marqueurVille.bindPopup("<p>" + city.name + "</p>")
             marqueursClusters.addLayer(marqueurVille)
 
             /*Ajout des marqueurs des écoles*/
-            for(school in schools){
-                var marqueurSchool = L.marker([schools[school].latitude, schools[school].longitude],{icon:iconSchool});
-                marqueurSchool.bindPopup("<p>"+schools[school].name+"</p>")
-                marqueursClusters.addLayer(marqueurSchool)     
+            for (school in schools) {
+                var marqueurSchool = L.marker([schools[school].latitude, schools[school].longitude], { icon: iconSchool });
+                marqueurSchool.bindPopup("<p>" + schools[school].name + "</p>")
+                marqueursClusters.addLayer(marqueurSchool)
             };
-           
+
             /*Ajout des marqueurs des arrêts de transport*/
-            for(stop in stops){
-                var marqueurArret = L.marker([stops[stop].longitude, stops[stop].latitude],{icon:iconArret});
-                marqueurArret.bindPopup("<p>"+stops[stop].name+"</p>")            
-                marqueursClusters.addLayer(marqueurArret)    
+            for (stop in stops) {
+                var marqueurArret = L.marker([stops[stop].longitude, stops[stop].latitude], { icon: iconArret });
+                marqueurArret.bindPopup("<p>" + stops[stop].name + "</p>")
+                marqueursClusters.addLayer(marqueurArret)
             };
 
             carte.addLayer(marqueursClusters)
@@ -189,7 +213,11 @@
             /*]]>*/
 
         </script>
-    </div>   
+
+        <!-- INCLUDE SHARED SCRIPTS  -->
+    <script th:replace="scripts :: script"></script>
+
+    </div>
 </body>
 
 </html>

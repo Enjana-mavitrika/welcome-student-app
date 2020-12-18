@@ -8,86 +8,104 @@
     <link th:replace="links :: link" />
 
     <style>
-        #maCarte{
+        #maCarte {
             height: 450px;
+        }
+
+        html {
+            background: url(/img/bg3.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
 
-    <!-- INCLUDE SHARED SCRIPTS  -->
-    <script th:replace="scripts :: script"></script>
+     <!-- INCLUDE SHARED SCRIPTS  -->
+     <script th:replace="scriptsmap :: script"></script>
 </head>
 
 <body>
 
-    <div class="uk-container">
-        <h1>Bienvenue sur Student welcome App</h1>
-        <div class="uk-alert-primary" uk-alert>
-            <a class="uk-alert-close" uk-close></a>
-            <p>Sélectionnez votre ville sur la carte</p>
-        </div>
+    <main>
+        <div class="uk-container">
+            <h1 class="uk-text-center"><img alt="logo" src="/img/logo.png" /><br/><span style="position: relative; top: -50px;" class="uk-text-muted uk-text-small">Trouvez tous les endroits incontournables pour les nouveaux étudiants dans votre ville d'accueil</span></h1>
+            <div class="uk-alert-primary" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>Sélectionnez votre ville sur la carte</p>
+            </div>
 
-        <div id="maCarte">
-            
-        </div>
+            <div id="maCarte">
 
-        <div class="uk-alert-primary" uk-alert>
-            <a class="uk-alert-close" uk-close></a>
-            <p>Sélectionnez votre ville</p>
+            </div>
+
+            <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+                <li style="padding: 20px; margin-bottom: 30px;">
+                    <a class="uk-accordion-title" href="#">Afficher la liste des villes dans un tableau</a>
+                    <div class="uk-accordion-content">
+                            <table class="uk-table uk-table-hover uk-table-divider">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Longitude</th>
+                                    <th>Latitude</th>
+                                </tr>
+                                <tr th:each="city : ${cities}">
+                                    <td>
+                                        <span uk-icon="location"></span>
+                                        <a th:href="@{${city.url}}">[[ ${city.name} ]]</a>
+                                    </td>
+                                    <td>[[ ${city.longitude} ]]</td>
+                                    <td>[[ ${city.latitude} ]]</td>
+                                </tr>
+                            </table>
+                    </div>
+                </li>
+            </ul>
+
         </div>
-        <table class="uk-table uk-table-striped">
-            <tr>
-                <th>Nom</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
-            </tr>
-            <tr th:each="city : ${cities}">
-                <td>
-                    <span uk-icon="location"></span>
-                    <a th:href="@{${city.url}}">[[ ${city.name} ]]</a>
-                </td>
-                <td>[[ ${city.longitude} ]]</td>
-                <td>[[ ${city.latitude} ]]</td>
-            </tr>
-        </table>
         
-        <script th:inline="javascript">
-            /* Initialisation de la carte */
-            var carte = L.map('maCarte').setView([45.433888888, 4.389722222], 13);
-            /* pour le reglage du zoom automatique*/
-            var tabMarqueurs = []
+    </main>
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                minZoom: 2,
-                maxZoom: 19
-            }).addTo(carte);
 
-            /* Pour grouper les marqueurs qui sont proches */
-            var marqueursClusters = L.markerClusterGroup();
-           
-            /*<![CDATA[*/
-                var villes = /*[[${cities}]]*/ "Test";
+    <script th:inline="javascript">
+        /* Initialisation de la carte */
+        var carte = L.map('maCarte').setView([45.433888888, 4.389722222], 13);
+        /* pour le reglage du zoom automatique*/
+        var tabMarqueurs = []
 
-                for(ville in villes){
-                    var marqueur = L.marker([villes[ville].latitude, villes[ville].longitude]);
-                    marqueur.bindPopup("<a href="+villes[ville].url+">"+villes[ville].name+"</a>")
-                    /* on ajoute le marqueur au groupe */
-                    marqueursClusters.addLayer(marqueur)
-                    
-                    /* ajout du marqueur dans le tableau des marqueurs*/
-                    tabMarqueurs.push(marqueur)
-                };
-                /* On regroupe les marqueurs dans un groupe*/
-                var groupe = new L.featureGroup(tabMarqueurs)
-                /* On adapte le zoom à tout le groupe*/
-                carte.fitBounds(groupe.getBounds())
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            minZoom: 2,
+            maxZoom: 19
+        }).addTo(carte);
 
-                carte.addLayer(marqueursClusters)
+        /* Pour grouper les marqueurs qui sont proches */
+        var marqueursClusters = L.markerClusterGroup();
 
-            /*]]>*/
+        var villes = /*[[${cities}]]*/ "Test";
 
-        </script>
-    </div>
+        for (ville in villes) {
+            var marqueur = L.marker([villes[ville].latitude, villes[ville].longitude]);
+            marqueur.bindPopup("<a href=" + villes[ville].url + ">" + villes[ville].name + "</a>")
+            /* on ajoute le marqueur au groupe */
+            marqueursClusters.addLayer(marqueur)
+
+            /* ajout du marqueur dans le tableau des marqueurs*/
+            tabMarqueurs.push(marqueur)
+        };
+        /* On regroupe les marqueurs dans un groupe*/
+        var groupe = new L.featureGroup(tabMarqueurs)
+        /* On adapte le zoom à tout le groupe*/
+        carte.fitBounds(groupe.getBounds())
+
+        carte.addLayer(marqueursClusters)
+
+        /*]]>*/
+
+    </script>
+
+    <!-- INCLUDE SHARED SCRIPTS  -->
+    <script th:replace="scripts :: script"></script>
 </body>
 
 </html>

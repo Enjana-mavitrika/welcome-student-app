@@ -83,6 +83,31 @@ public class RDFCounsumer {
         return city;
     }
 
+    public School fetchSchool(String schoolId) {
+        School school = new School();
+        String schoolURI = RDFProducer.BASE_URI + RDFProducer.SCHOOL_BASE_URI + schoolId;
+        String queryString = getSchoolByIdQuery(schoolURI);
+        QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
+        try {
+            ResultSet results = qexec.execSelect();
+            while(results.hasNext()) {
+                QuerySolution qs = results.next();
+               Literal lattitude = qs.getLiteral("latitude");
+                Literal longitude = qs.getLiteral("longitude");
+                Resource url = qs.getResource("url");
+                Resource website = qs.getResource("website");
+                Literal name = qs.getLiteral("name");
+                school = new School(schoolId, name.getString(), lattitude.getDouble(), longitude.getDouble(), url.getURI(), website.getURI());
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            qexec.close();
+        }
+
+        return school;
+    }
+
     public void describeCity(String cityId, OutputStream out) {
         String cityURI = RDFProducer.BASE_URI + RDFProducer.CITY_BASE_URI + cityId;
         String queryString = "DESCRIBE " + "<"+cityURI+">";
@@ -91,6 +116,62 @@ public class RDFCounsumer {
             Model model = qexec.execDescribe();
             model.setNsPrefix("schema", RDFProducer.schema);
             model.setNsPrefix("city", RDFProducer.BASE_URI + RDFProducer.CITY_BASE_URI);
+            RDFWriter.create()
+            .set(RIOT.symTurtleDirectiveStyle, "at")
+            .lang(Lang.TTL)
+            .source(model)
+            .output(out);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String describeCity(String cityId) {
+        String cityURI = RDFProducer.BASE_URI + RDFProducer.CITY_BASE_URI + cityId;
+        String queryString = "DESCRIBE " + "<"+cityURI+">";
+        QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
+        try {
+            Model model = qexec.execDescribe();
+            model.setNsPrefix("schema", RDFProducer.schema);
+            model.setNsPrefix("city", RDFProducer.BASE_URI + RDFProducer.CITY_BASE_URI);
+            
+            return RDFWriter.create()
+            .lang(Lang.JSONLD)
+            .source(model).asString();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        
+        return "";
+    }
+
+    public String describeSchool(String schoolId) {
+        String schoolURI = RDFProducer.BASE_URI + RDFProducer.CITY_BASE_URI + schoolId;
+        String queryString = "DESCRIBE " + "<"+schoolURI+">";
+        QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
+        try {
+            Model model = qexec.execDescribe();
+            model.setNsPrefix("schema", RDFProducer.schema);
+            model.setNsPrefix("school", RDFProducer.BASE_URI + RDFProducer.CITY_BASE_URI);
+            
+            return RDFWriter.create()
+            .lang(Lang.JSONLD)
+            .source(model).asString();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        
+        return "";
+    }
+
+    public void describeSchool(String schoolId, OutputStream out) {
+        String schoolURI = RDFProducer.BASE_URI + RDFProducer.SCHOOL_BASE_URI + schoolId;
+        String queryString = "DESCRIBE " + "<"+schoolURI+">";
+        QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
+        try {
+            Model model = qexec.execDescribe();
+            model.setNsPrefix("schema", RDFProducer.schema);
+            model.setNsPrefix("school", RDFProducer.BASE_URI + RDFProducer.SCHOOL_BASE_URI);
             RDFWriter.create()
             .set(RIOT.symTurtleDirectiveStyle, "at")
             .lang(Lang.TTL)
@@ -150,7 +231,7 @@ public class RDFCounsumer {
         return stops; 
     }
 
-    public List<Stop> fetchStopsAroundSchool(String cityURI, int maxDistance) {
+    public List<Stop> fetchStopsByCityAroundSchool(String cityURI, int maxDistance) {
         List<Stop> stops = new ArrayList<Stop>();
         String queryString = getStopsByCityAroundSchool(cityURI, maxDistance);
         QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
@@ -176,6 +257,59 @@ public class RDFCounsumer {
         return stops; 
     }
 
+    public List<Stop> fetchStopsAroundSchool(String schoolId, int maxDistance) {
+        List<Stop> stops = new ArrayList<Stop>();
+        String schoolURI = RDFProducer.BASE_URI + RDFProducer.SCHOOL_BASE_URI + schoolId;
+        String queryString = getStopsAroundSchool(schoolURI, maxDistance);
+        QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
+        try {
+            ResultSet results = qexec.execSelect();
+            while(results.hasNext()) {
+                QuerySolution qs = results.next();
+                Resource stop = qs.getResource("stop");
+                Literal lattitude = qs.getLiteral("latitude");
+                Literal longitude = qs.getLiteral("longitude");
+                Literal name = qs.getLiteral("name");
+                Literal distanceFromSchool = qs.getLiteral("distance");
+                Literal refSchool = qs.getLiteral("school_name");
+                Resource url = qs.getResource("url");
+                stops.add(new Stop(stop.getURI(), name.getString(), longitude.getString(), lattitude.getString(), url.getURI(), distanceFromSchool.getDouble(), refSchool.getString()));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            qexec.close();
+        }
+
+        return stops; 
+    }
+
+    public List<School> fetchSchoolAroundSchool(String schoolId, int maxDistance) {
+        List<School> schools = new ArrayList<School>();
+        String schoolURI = RDFProducer.BASE_URI + RDFProducer.SCHOOL_BASE_URI + schoolId;
+        String queryString = getSchoolsAroundSchool(schoolURI, maxDistance);
+        QueryExecution qexec = QueryExecutionFactory.sparqlService(sparqlEndPoint, queryString);
+        try {
+            ResultSet results = qexec.execSelect();
+            while(results.hasNext()) {
+                QuerySolution qs = results.next();
+                Resource school = qs.getResource("school");
+                Literal lattitude = qs.getLiteral("latitude");
+                Literal longitude = qs.getLiteral("longitude");
+                Literal name = qs.getLiteral("name");
+                Literal distanceFromSchool = qs.getLiteral("distance");
+                Resource url = qs.getResource("url");
+                schools.add(new School(school.getURI(), name.getString(), longitude.getDouble(), lattitude.getDouble(), url.getURI(), distanceFromSchool.getDouble()));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            qexec.close();
+        }
+
+        return schools; 
+    }
+
     private String getCitiesQuery() {
         return this.getSelectQuery("cities.rq");
     }
@@ -192,8 +326,22 @@ public class RDFCounsumer {
         return this.getSelectQuery("stopsByCityAroundSchool.rq").replace("<city-uri>", "<"+cityURI+">").replace("<max-dist>", String.valueOf(maxDistance));
     }
 
+    private String getStopsAroundSchool(String schoolURI, int maxDistance) {
+        return this.getSelectQuery("stopsAroundSchool.rq").replace("<school-uri>", "<"+schoolURI+">").replace("<max-dist>", String.valueOf(maxDistance)); 
+    }
+
+    private String getSchoolsAroundSchool(String schoolURI, int maxDistance) {
+        System.out.println("uri = " + schoolURI);
+        return this.getSelectQuery("schoolsAroundSchool.rq").replace("<school-uri>", "<"+schoolURI+">").replace("<max-dist>", String.valueOf(maxDistance)); 
+    }
+
     private String getCityByIdQuery(String cityURI) {
         String query = this.getSelectQuery("cityById.rq").replace("<city-uri>", "<"+cityURI+">");
+        return query;
+    }
+
+    private String getSchoolByIdQuery(String schoolURI) {
+        String query = this.getSelectQuery("schoolById.rq").replace("<school-uri>", "<"+schoolURI+">");
         return query;
     }
 

@@ -75,7 +75,7 @@ public class RDFProducer {
         Resource geometry = model.createResource(geo + "Geometry");
         Resource schoolGeomRDF = model.createResource(id + "Geom");
         model.setNsPrefix("schema", schema);
-        model.setNsPrefix("ex_school", BASE_URI + SCHOOL_BASE_URI);
+        model.setNsPrefix("school", BASE_URI + SCHOOL_BASE_URI);
         model.setNsPrefix("geo", geo);
         model.setNsPrefix("a", rdf);
         schoolGeomRDF.addProperty(a, geometry);
@@ -146,7 +146,7 @@ public class RDFProducer {
         Resource wikidataIdentifier = model.createResource(wd + city.qid);
         Resource cityRDF = model.createResource(uri);
         Resource schemaCity = model.createResource(schema+"City");
-        model.setNsPrefix("sch", schema);
+        model.setNsPrefix("schema", schema);
         model.setNsPrefix("city", BASE_URI + CITY_BASE_URI);
         cityRDF.addProperty(a, schemaCity);
         cityRDF.addProperty(label, name);

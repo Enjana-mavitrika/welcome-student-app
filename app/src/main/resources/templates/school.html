@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Student Welcome App</title>
+    <!-- INCLUDE SHARED LINKS  -->
+    <link th:replace="links :: link" />
+
+    <style>
+        #maCarte {
+            height: 400px;
+        }
+
+        html {
+            background: url(/img/bg3.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+
+    <!-- INCLUDE SHARED SCRIPTS  -->
+    <script th:replace="scriptsmap :: script"></script>
+    
+</head>
+
+<body>
+    <div class="uk-container">
+        <div class="uk-alert-primary" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p>Explorez quelques endroits clés (écoles, arrêts de transport, etc.) aux alentours de [[ ${school.name} ]]
+                sur la carte</p>
+        </div>
+        <div id="maCarte">
+
+        </div>
+        <h1 class="uk-text-right uk-text-warning uk-text-bold uk-text-uppercase">[[ ${school.name} ]]</h1>
+        <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+            <li style="padding: 20px; margin-bottom: 30px;">
+                <a class="uk-accordion-title" href="#">Afficher détails sur [[ ${school.name} ]]</a>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-hover">
+                        <tr>
+                            <th>Nom</th>
+                            <td>[[ ${school.name} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Site web officiel</th>
+                            <td>[[ ${school.website} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Identifiant</th>
+                            <td>[[ ${school.qid} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Latitude</th>
+                            <td>[[ ${school.latitude} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Longitude</th>
+                            <td>[[ ${school.longitude} ]]</td>
+                        </tr>
+                        <tr>
+                            <th>Page web</th>
+                            <td>[[ ${school.url} ]]</td>
+                        </tr>
+                    </table>
+                    <p><button class="uk-button uk-button-primary uk-align-right" th:data-uri="${school.qid}"
+                            id="machine-simulator"><span uk-icon="icon: download; ratio: 1.5"></span><br />Simulate
+                            content
+                            negotiation to get .ttl</button>
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+        <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+            <li style="padding: 20px; margin-bottom: 30px;">
+                <a class="uk-accordion-title" href="#">Afficher les organisations éducatives aux alentours de [[ ${school.name} ]]</a>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-hover uk-table-divider">
+                        <tr>
+                            <th>Les organisations éducatives à une distance max de 2000 m</th>
+                            <th>Distance</th>
+                        </tr>
+                        <tr th:each="school : ${schoolsAround}">
+                            <td>
+                                <span uk-icon="location"></span>
+                                <a th:href="@{${school.url}}">[[ ${school.name} ]]</a>
+                            </td>
+                            <td>[[ ${#numbers.formatDecimal(school.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m</td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(schoolsAround)}">
+                            <td colspan="3">Aucune information disponible</td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
+
+
+        <ul uk-accordion="collapsible: true" class="uk-card uk-card-default">
+            <li style="padding: 20px; margin-bottom: 30px;">
+                <a class="uk-accordion-title" href="#">Afficher les arrêts qui se trouve aux alentours de [[ ${school.name} ]]</a>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-hover uk-table-divider">
+                        <tr>
+                            <th>Les arrêts qui se trouvent à une distance max de 200 m</th>
+                            <th>Distance</th>
+                        </tr>
+                        <tr th:each="stop : ${stopsAround}">
+                            <td>
+                                <span uk-icon="location"></span>
+                                <a th:href="@{${stop.url}}">[[ ${stop.name} ]]</a>
+                            </td>
+                            <td>[[ ${#numbers.formatDecimal(stop.distanceMinFromSchool, 0, 'COMMA', 2, 'POINT') }]] m
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(stopsAround)}">
+                            <td colspan="3">Aucune information disponible</td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </ul>
+
+
+        <!-- ********  CONTENUS RDF SOUS FORMAT JSON-LD *************  -->
+        <script th:utext="${jsonLD}" type="application/ld+json">
+        </script>
+
+
+        <!-- INCLUDE SHARED SCRIPTS  -->
+    <script th:replace="scripts :: script"></script>
+
+
+    </div>
+</body>
+
+</html>
