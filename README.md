@@ -8,25 +8,22 @@ Application web basée sur la technologie __Web semantique__ pour aider les nouv
 ### SUIVIS AVANCEMENT
 | __Fonctionnalités de base__   |  __Statut__    |
 |---------------------------|:----------:|
-| Setup triple store |  DONE       |
-| Use existing ontologies(schema) |    DONE   |
-| Define customize vocabulary | TODO |
-| Documentation ontology   | TODO |
-| Populate triple multiple source | DONE |
-| Website front end of the data  | DONE |
-| Show group of entities in HTML TABLE | DONE |
-| Extract data with SPARQL (wikidata & apache jena-fuseki-geosparql) | DONE |
+| Setup triple store |  :white_check_mark:       |
+| Use existing ontologies(schema) |    :white_check_mark:   |
+| Define customize vocabulary | :white_check_mark: |
+| Documentation ontology   | :white_check_mark: |
+| Populate triple multiple source | :white_check_mark: |
+| Website front end of the data  | :white_check_mark: |
+| Show group of entities in HTML TABLE | :white_check_mark: |
+| Extract data with SPARQL (wikidata & apache jena-fuseki-geosparql) | :white_check_mark: |
 
 | __Fonctionnalités avancées__   |  __Statut__    |
 |--------------------------------|:--------------:|
-| Show group of entities in MAP (openstreet map) | DONE |
-| Add content negotiation (humman and machine) | DONE |
-| add structured data to the web pages, using RDFa or JSON-LD | TODO |
-| FILTER bus stop around schools with MAX distance | DONE | 
-| Add meteo for each city | TODO |
-| FILTER city with good weather | TODO |
-| FILTER city with bad weather | TODO |
-| Add interface to EXTEND data easily for other City or Country | TODO | 
+| Show group of entities in MAP (openstreet map) | :white_check_mark: |
+| Add content negotiation (humman and machine) | :white_check_mark: |
+| add structured data to the web pages, using RDFa or JSON-LD | :white_check_mark: |
+| FILTER bus stop around schools with MAX distance | :white_check_mark: | 
+| Add meteo for each city | :white_check_mark: |
 
 
 ## Pré-requis (développeur)
