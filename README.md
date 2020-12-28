@@ -26,6 +26,10 @@ Application web basée sur la technologie __Web semantique__ pour aider les nouv
 | Add meteo for each city | :white_check_mark: |
 
 
+## DEMO VIDEO 
+[Voir la vidéo sur youtube](https://youtu.be/5xC2lqzb1zk)
+
+
 ## Pré-requis (développeur)
 - JAVA 15
 - Visual Studio Code 
