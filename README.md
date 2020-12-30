@@ -26,7 +26,12 @@ Application web basée sur la technologie __Web semantique__ pour aider les nouv
 | Add meteo for each city | :white_check_mark: |
 
 
-## DEMO VIDEO 
+
+## Ontologie
+![alt text](https://raw.githubusercontent.com/Enjana-mavitrika/welcome-student-app/master/Conception-Ontology.png?raw=true)
+
+
+## Demo video 
 [Voir la vidéo sur youtube](https://youtu.be/5xC2lqzb1zk)
 
 
